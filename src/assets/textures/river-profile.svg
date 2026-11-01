@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 72" fill="none" preserveAspectRatio="none">
+  <!-- Perfil batimetrico de queda de barranco / canal de rio -->
+  <path
+    d="M0 24 C 180 24, 260 58, 440 54 C 610 50, 710 14, 890 22 C 1030 28, 1110 48, 1200 44"
+    stroke="#223B33"
+    stroke-width="1.2"
+  />
+  <path
+    d="M0 36 C 195 34, 275 66, 455 62 C 625 58, 725 24, 905 32 C 1040 38, 1120 56, 1200 52"
+    stroke="#E59A28"
+    stroke-width="1"
+    stroke-opacity="0.28"
+    stroke-dasharray="4 6"
+  />
+</svg>
+

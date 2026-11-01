@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 420" fill="none">
+  <!-- Grade geometrica tecnica sutil (estilo desenho de projeto de anzol esportivo) -->
+  <circle cx="185" cy="255" r="118" stroke="#223B33" stroke-width="1" stroke-dasharray="4 6"/>
+  <circle cx="185" cy="255" r="76" stroke="#223B33" stroke-width="1" stroke-opacity="0.55"/>
+  <line x1="42" y1="255" x2="328" y2="255" stroke="#223B33" stroke-width="1" stroke-opacity="0.45"/>
+  <line x1="185" y1="24" x2="185" y2="396" stroke="#223B33" stroke-width="1" stroke-opacity="0.45"/>
+
+  <!-- Linha multifilamento / leader sob tensao -->
+  <path d="M222 0 L222 86" stroke="#E59A28" stroke-width="1.5" stroke-dasharray="3 3" stroke-opacity="0.75"/>
+  <path d="M222 68 C215 78, 229 84, 222 94 C216 102, 228 106, 222 114" stroke="#E59A28" stroke-width="1.6" stroke-linecap="round"/>
+
+  <!-- Olhal do anzol (Ringed Eye) -->
+  <circle cx="222" cy="126" r="11" fill="#0A1411" stroke="#F2F6F4" stroke-width="3"/>
+  <circle cx="222" cy="126" r="4.5" fill="#0A1411" stroke="#E59A28" stroke-width="1.5"/>
+
+  <!-- Haste, curvatura (Bend) e fisga afiada (Point & Barb) de anzol esportivo -->
+  <path
+    d="M222 137 L222 252 C222 304, 182 340, 134 340 C88 340, 56 306, 56 262 C56 232, 70 205, 92 186 L96 220"
+    stroke="#F2F6F4"
+    stroke-width="3.2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <!-- Linha interna de reflexo dourado na curvatura -->
+  <path
+    d="M214 154 L214 250 C214 296, 178 329, 134 329 C96 329, 68 301, 66 264"
+    stroke="#E59A28"
+    stroke-width="1.2"
+    stroke-linecap="round"
+    stroke-opacity="0.7"
+  />
+
+  <!-- Marcadores de engenharia / angulo de ferrada -->
+  <circle cx="92" cy="186" r="4" fill="#E59A28"/>
+  <circle cx="92" cy="186" r="11" stroke="#E59A28" stroke-opacity="0.4" stroke-width="1"/>
+  <path d="M222 126 L92 186" stroke="#E59A28" stroke-width="1" stroke-dasharray="2 5" stroke-opacity="0.45"/>
+
+  <!-- Cotas tecnicas minimalistas -->
+  <text x="242" y="130" fill="#9DB2AA" font-family="monospace" font-size="10" letter-spacing="2">EYE • 90°</text>
+  <text x="238" y="248" fill="#E59A28" font-family="monospace" font-size="10" letter-spacing="2">SHANK</text>
+  <text x="48" y="170" fill="#E59A28" font-family="monospace" font-size="10" letter-spacing="2">POINT</text>
+  <text x="112" y="366" fill="#9DB2AA" font-family="monospace" font-size="10" letter-spacing="2">WIDE GAP BEND</text>
+</svg>
+

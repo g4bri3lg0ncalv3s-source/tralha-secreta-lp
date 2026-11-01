@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640" fill="none">
+  <!-- Curvas batimetricas organicas de leito de rio e estruturas submersas -->
+  <g stroke="#223B33" stroke-width="1" stroke-opacity="0.52">
+    <path d="M-60 72 C 95 28, 220 138, 370 84 C 495 39, 575 104, 700 72"/>
+    <path d="M-60 128 C 110 82, 235 192, 392 132 C 510 86, 585 152, 700 128" stroke-opacity="0.36"/>
+    <path d="M-60 198 C 85 162, 218 268, 385 204 C 505 158, 578 228, 700 198"/>
+    <path d="M-60 278 C 130 228, 255 344, 412 282 C 522 238, 592 302, 700 278" stroke-dasharray="6 6" stroke-opacity="0.34"/>
+    <path d="M-60 364 C 108 318, 248 424, 398 368 C 512 325, 585 388, 700 364"/>
+    <path d="M-60 448 C 98 408, 232 502, 388 452 C 504 415, 582 472, 700 448" stroke-opacity="0.38"/>
+    <path d="M-60 536 C 122 492, 258 588, 408 538 C 518 502, 590 558, 700 536"/>
+    <path d="M-60 604 C 110 568, 244 642, 396 604 C 508 576, 586 622, 700 604" stroke-opacity="0.32"/>
+
+    <!-- Ilhas de profundidade (pocoes e coroas submersas) -->
+    <ellipse cx="176" cy="224" rx="98" ry="42" transform="rotate(-11 176 224)" stroke-opacity="0.34"/>
+    <ellipse cx="176" cy="224" rx="58" ry="24" transform="rotate(-11 176 224)" stroke-opacity="0.26"/>
+    <ellipse cx="176" cy="224" rx="22" ry="9" transform="rotate(-11 176 224)" stroke="#E59A28" stroke-opacity="0.16"/>
+
+    <ellipse cx="472" cy="456" rx="112" ry="46" transform="rotate(8 472 456)" stroke-opacity="0.34"/>
+    <ellipse cx="472" cy="456" rx="66" ry="26" transform="rotate(8 472 456)" stroke-opacity="0.24"/>
+    <ellipse cx="472" cy="456" rx="26" ry="10" transform="rotate(8 472 456)" stroke="#E59A28" stroke-opacity="0.14"/>
+  </g>
+
+  <!-- Marcacoes discretas de carta nautica -->
+  <g stroke="#E59A28" stroke-width="1" stroke-opacity="0.16">
+    <path d="M316 156 H324 M320 152 V160"/>
+    <path d="M116 492 H124 M120 488 V496"/>
+    <path d="M540 188 H548 M544 184 V192"/>
+  </g>
+</svg>

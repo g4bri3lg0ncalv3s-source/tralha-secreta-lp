@@ -1,0 +1,433 @@
+/* ==========================================================================
+   TRALHA SECRETA — INTERFACE & CONVERSION COMPONENTS (PHASE 2)
+   WCAG 2.1 AA/AAA Audited Controls + Reduced Motion Support
+   ========================================================================== */
+
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  min-height: 3.5rem; /* 56px >= 48px mobile touch target requirement */
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+/* Primary Conversion CTA: #04130B text on #16B869 background = 7.34:1 (WCAG AAA) */
+.btn-cta--primary {
+  width: 100%;
+  gap: var(--space-2);
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  background-color: var(--color-cta-primary);
+  color: var(--color-text-on-cta);
+  border: 1px solid transparent;
+  box-shadow: var(--shadow-cta);
+}
+
+.btn-cta--primary:hover {
+  background-color: var(--color-cta-primary-hover); /* 10.90:1 with #04130B */
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px -4px rgba(30, 224, 128, 0.38);
+}
+
+.btn-cta--primary:active {
+  background-color: var(--color-cta-primary-active); /* 6.51:1 with #04130B */
+  transform: translateY(0);
+}
+
+/* Future-ready Secondary CTA (e.g. when WhatsApp is enabled in channels.js) */
+.btn-cta--secondary {
+  width: 100%;
+  background-color: var(--color-bg-surface);
+  color: var(--color-text-primary); /* 14.88:1 on #12231E */
+  border: 1px solid var(--color-border-highlight);
+}
+
+.btn-cta--secondary:hover {
+  background-color: var(--color-bg-elevated);
+  border-color: var(--color-accent-gold);
+}
+
+/* Discreet Header Conversion Link: >= 48px touch height without visual clutter */
+.btn-cta--header {
+  min-height: 3rem; /* 48px exact minimum touch target */
+  padding: 0.5rem 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  background-color: var(--color-bg-surface);
+  color: var(--color-text-primary); /* 14.88:1 contrast on #12231E */
+  border: 1px solid rgba(22, 184, 105, 0.52);
+  border-radius: var(--radius-sm);
+}
+
+.btn-cta--header .btn-cta__icon {
+  color: var(--color-cta-primary-hover);
+  transition: color var(--transition-fast);
+}
+
+.btn-cta--header:hover {
+  background-color: var(--color-cta-primary);
+  border-color: var(--color-cta-primary);
+  color: var(--color-text-on-cta);
+}
+
+.btn-cta--header:hover .btn-cta__icon {
+  color: var(--color-text-on-cta);
+}
+
+.btn-cta--header:active {
+  background-color: var(--color-cta-primary-active);
+  border-color: var(--color-cta-primary-active);
+  color: var(--color-text-on-cta);
+}
+
+.btn-cta__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+
+.btn-cta--header .btn-cta__icon {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.btn-cta__arrow {
+  width: 1.05rem;
+  height: 1.05rem;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.btn-cta--primary:hover .btn-cta__arrow {
+  transform: translateX(3px);
+}
+
+/* Responsive button labels in header */
+.btn-cta__label-full {
+  display: none;
+}
+
+.btn-cta__label-compact {
+  display: inline;
+}
+
+@media (min-width: 30rem) {
+  .btn-cta--header {
+    padding-inline: 1.125rem;
+  }
+
+  .btn-cta__label-full {
+    display: inline;
+  }
+
+  .btn-cta__label-compact {
+    display: none;
+  }
+}
+
+@media (min-width: 40rem) {
+  .btn-cta--primary {
+    gap: var(--space-3);
+    font-size: 0.9375rem;
+    letter-spacing: 0.04em;
+  }
+
+  .btn-cta--primary,
+  .btn-cta--secondary {
+    width: auto;
+    padding-inline: 1.875rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-cta,
+  .btn-cta__arrow,
+  .tg-post,
+  .category-chapter__img {
+    transition: none;
+  }
+
+  .btn-cta--primary:hover,
+  .btn-cta--primary:hover .btn-cta__arrow,
+  .tg-post:hover,
+  .category-chapter:hover .category-chapter__img {
+    transform: none;
+  }
+}
+
+/* ==========================================================================
+   HONEST DEMONSTRATION NOTICE & TELEGRAM POST PRIMITIVES (PHASE 3)
+   ========================================================================== */
+
+.demo-disclaimer {
+  margin-top: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+  background-color: rgba(18, 35, 30, 0.78);
+  border-left: 3px solid var(--color-accent-gold);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  max-width: 60ch;
+}
+
+.demo-disclaimer__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.1875rem 0.5rem;
+  border-radius: 0.25rem;
+  background-color: var(--color-accent-gold);
+  color: var(--color-bg-abyss); /* 8.21:1 WCAG AAA */
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.demo-disclaimer__text {
+  font-size: var(--text-sm);
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+}
+
+.demo-disclaimer__text strong {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+/* Authentic Telegram Channel Broadcast Bubble */
+.tg-post {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background-color: var(--color-bg-surface);
+  border: 1px solid rgba(42, 171, 238, 0.18);
+  border-radius: 1rem 1rem 1rem 0.25rem;
+  overflow: hidden;
+  box-shadow: 0 16px 36px -14px rgba(2, 7, 6, 0.85);
+  transition: border-color var(--transition-base), transform var(--transition-base);
+}
+
+.tg-post:hover {
+  border-color: rgba(229, 154, 40, 0.42);
+  transform: translateY(-2px);
+}
+
+.tg-post__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: 0.75rem 0.9375rem;
+  background-color: rgba(10, 20, 17, 0.52);
+  border-bottom: 1px solid rgba(34, 59, 51, 0.7);
+}
+
+.tg-post__author {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #74CDFF; /* 8.6:1 contrast on dark header */
+  letter-spacing: 0.01em;
+}
+
+.tg-post__fictional-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.1875rem 0.5rem;
+  border-radius: 0.25rem;
+  background-color: var(--color-accent-gold);
+  color: var(--color-bg-abyss); /* 8.21:1 WCAG AAA */
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.tg-post__media {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-bg-abyss);
+  overflow: hidden;
+}
+
+.tg-post__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.tg-post__discount-badge {
+  position: absolute;
+  bottom: 0.625rem;
+  left: 0.625rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-cta-primary);
+  color: var(--color-text-on-cta); /* 7.34:1 WCAG AAA */
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: 0 6px 16px rgba(4, 19, 11, 0.72);
+}
+
+.tg-post__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: 1rem;
+  flex: 1 1 auto;
+}
+
+.tg-post__callout {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  color: var(--color-accent-gold-bright); /* 9.6:1 on #12231E */
+}
+
+.tg-post__product {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.2vw, 1.55rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+}
+
+.tg-post__message {
+  font-size: var(--text-sm);
+  line-height: 1.52;
+  color: var(--color-text-secondary);
+}
+
+.tg-post__pricing {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2) var(--space-3);
+  align-items: end;
+  padding: 0.75rem 0.875rem;
+  background-color: rgba(10, 20, 17, 0.78);
+  border: 1px solid var(--color-border-carbon);
+  border-radius: var(--radius-sm);
+}
+
+.tg-post__price-old-group,
+.tg-post__price-new-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+}
+
+.tg-post__price-label {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  line-height: 1.25;
+  color: var(--color-text-secondary);
+}
+
+.tg-post__price-old {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  text-decoration-color: rgba(229, 154, 40, 0.85);
+  text-decoration-thickness: 1.5px;
+}
+
+.tg-post__price-new {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.4vw, 1.625rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--color-cta-primary-hover); /* #1EE080 -> >9.8:1 WCAG AAA */
+}
+
+.tg-post__saving-tag {
+  grid-column: 1 / -1;
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.1875rem 0.5rem;
+  border-radius: 0.25rem;
+  background-color: rgba(22, 184, 105, 0.14);
+  border: 1px solid rgba(30, 224, 128, 0.35);
+  color: var(--color-cta-primary-hover);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.tg-post__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-top: var(--space-2);
+  border-top: 1px dashed rgba(34, 59, 51, 0.85);
+}
+
+.tg-post__disclaimer-inline {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  line-height: 1.35;
+  color: var(--color-text-secondary);
+}
+
+.tg-post__time {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-text-secondary);
+}
+
+@media (min-width: 68rem) {
+  .tg-post__pricing {
+    grid-template-columns: auto 1fr auto;
+    gap: var(--space-4);
+    align-items: center;
+  }
+
+  .tg-post__saving-tag {
+    grid-column: auto;
+    justify-self: end;
+  }
+}
