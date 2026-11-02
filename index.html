@@ -5,65 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#0A1411" />
 
-    <!-- SEO & Social Metadata -->
-    <title>Tralha Secreta — Canal de Ofertas de Artigos de Pesca no Telegram</title>
+    <!-- SEO Metadata -->
+    <title>Tralha Secreta — Promoções de Artigos de Pesca no Telegram</title>
     <meta
       name="description"
-      content="Acompanhe promoções de varas, carretilhas, molinetes, iscas e acessórios de pesca. A Tralha Secreta reúne oportunidades divulgadas por lojas e marketplaces no Telegram."
+      content="Entre gratuitamente no canal oficial da Tralha Secreta no Telegram e acompanhe promoções de varas, carretilhas, molinetes, iscas e acessórios de pesca."
     />
     <meta name="robots" content="index, follow" />
 
-    <!-- Open Graph -->
+    <!-- Open Graph & Social Sharing (Substitua pela URL absoluta do domínio público ao publicar, ex: https://seudominio.com.br/og-image.jpg) -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:site_name" content="Tralha Secreta" />
-    <meta property="og:title" content="Tralha Secreta — Canal de Ofertas de Artigos de Pesca" />
+    <meta property="og:title" content="Tralha Secreta — Promoções de Artigos de Pesca no Telegram" />
     <meta
       property="og:description"
-      content="Oportunidades e promoções de varas, carretilhas, molinetes, iscas e acessórios de pesca diretamente no canal oficial do Telegram."
+      content="Acompanhe ofertas e oportunidades de varas, carretilhas, molinetes, iscas e acessórios de pesca diretamente no canal gratuito do Telegram."
     />
-    <meta property="og:image" content="./og-image.svg" />
-    <meta property="og:image:alt" content="Tralha Secreta — Canal no Telegram" />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Tralha Secreta — Canal oficial de ofertas de artigos de pesca no Telegram" />
+    <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Official Brand Favicon -->
-    <link rel="icon" type="image/png" href="./src/assets/images/favicon.png" />
+    <!-- Favicon Único -->
+    <link rel="icon" type="image/png" href="./favicon.png" />
 
-    <!-- Typography: Barlow Condensed + Plus Jakarta Sans + JetBrains Mono -->
+    <!-- Tipografia Enxuta (2 famílias essenciais: Barlow Condensed + Plus Jakarta Sans) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=JetBrains+Mono:wght@500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Modular Styles -->
-    <link rel="stylesheet" href="./src/styles/main.css" />
+    <!-- Arquitetura Zero-Build: 1 CSS + 1 JS -->
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <script src="./assets/app.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
 
-    <!-- Discreet & Responsive Brand Header -->
+    <!-- Cabeçalho Discreto e Responsivo -->
     <header id="topo" class="site-header" aria-label="Cabeçalho da marca Tralha Secreta">
       <div class="container site-header__inner">
         <div class="brand-lockup">
           <img
             class="brand-lockup__emblem"
-            src="./src/assets/images/emblema-tralha-secreta.webp"
+            src="./assets/images/emblema-tralha-secreta.webp"
             width="280"
             height="280"
             alt="Emblema oficial Tralha Secreta"
           />
           <div class="brand-lockup__text">
             <span class="brand-lockup__name">Tralha Secreta</span>
-            <span class="brand-lockup__sub">Canal de ofertas de artigos de pesca</span>
+            <span class="brand-lockup__sub">Canal de ofertas de pesca</span>
           </div>
         </div>
 
         <a
           class="btn-cta btn-cta--header"
-          data-channel-link="telegram"
-          data-cta-location="header"
-          href="#hero"
+          href="https://t.me/tralhasecreta"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-telegram-cta="header"
           aria-label="Entrar no canal oficial da Tralha Secreta no Telegram"
         >
           <svg class="btn-cta__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
@@ -78,14 +84,13 @@
       </div>
     </header>
 
-    <!-- Main Editorial Structure -->
     <main id="conteudo-principal" class="editorial-shell">
-      <!-- Section 1: Conversion-Oriented Hero Section (Phase 2) -->
+      <!-- Seção 1: Hero Section Orientada à Conversão -->
       <section id="hero" class="hero" aria-labelledby="hero-heading">
         <div class="hero__visual-stage" aria-hidden="true">
           <img
             class="hero__photo"
-            src="./src/assets/images/river-dawn.webp"
+            src="./assets/images/river-dawn.webp"
             width="1376"
             height="768"
             fetchpriority="high"
@@ -99,7 +104,7 @@
             <div class="hero__crest-wrap">
               <img
                 class="hero__crest"
-                src="./src/assets/images/emblema-tralha-secreta.webp"
+                src="./assets/images/emblema-tralha-secreta.webp"
                 width="280"
                 height="280"
                 fetchpriority="high"
@@ -108,22 +113,23 @@
             </div>
 
             <div class="hero__copy">
-              <span class="mono-kicker">Canal Oficial no Telegram • Pesca Esportiva &amp; Recreativa</span>
+              <span class="mono-kicker">Canal Oficial no Telegram • Acesso Gratuito</span>
 
               <h1 id="hero-heading" class="hero__title">
-                Onde toda boa pescaria ganha <span class="accent-word">forma</span> antes do arremesso.
+                Promoções de tralha de pesca <span class="accent-word">direto</span> no seu Telegram.
               </h1>
 
               <p class="hero__lead">
-                Acompanhe promoções de varas, carretilhas, molinetes, iscas e acessórios de pesca. A Tralha Secreta reúne oportunidades divulgadas por lojas e marketplaces para você acompanhar diretamente pelo Telegram.
+                Acompanhe oportunidades de varas, carretilhas, molinetes, iscas e acessórios encontradas em lojas e marketplaces — em um canal aberto e silencioso, sem conversa paralela de grupo.
               </p>
 
-              <div class="hero__actions" data-channel-actions="hero">
+              <div class="hero__actions">
                 <a
                   class="btn-cta btn-cta--primary"
-                  data-channel-link="telegram"
-                  data-cta-location="hero"
-                  href="#hero"
+                  href="https://t.me/tralhasecreta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-telegram-cta="hero"
                 >
                   <svg class="btn-cta__icon" viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true">
                     <path
@@ -146,278 +152,169 @@
 
               <p class="hero__microcopy">
                 <span class="hero__microcopy-dot" aria-hidden="true"></span>
-                <span>Canal gratuito • Promoções de artigos de pesca • Entre e acompanhe as publicações</span>
+                <span>100% gratuito • Apenas avisos de ofertas • Saia quando quiser</span>
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Section 2: Telegram Channel Preview — Illustrative Demonstration (Phase 3) -->
-      <section id="demonstracao" class="editorial-spread preview-section" aria-labelledby="demo-heading">
+      <!-- Seção 2: Demonstração Visual Limpa do Canal -->
+      <section id="demonstracao" class="editorial-spread" aria-labelledby="demo-heading">
         <div class="container">
           <div class="section-intro">
             <div class="section-intro__meta">
               <span class="depth-marker">
                 <span class="depth-marker__dot" aria-hidden="true"></span>
-                04.5m • Superfície &amp; Meia-Água
+                04.5m • Por Dentro do Canal
               </span>
               <span class="section-intro__watermark" aria-hidden="true">01</span>
             </div>
 
-            <div class="section-intro__body">
-              <span class="mono-kicker">Por Dentro do Canal • Demonstração no Site</span>
+            <div>
+              <span class="mono-kicker">Formato de Transmissão</span>
               <h2 id="demo-heading" class="section-intro__heading">
-                Veja como as oportunidades chegam <span class="accent-word">direto</span> no Telegram.
+                Veja como os achados chegam <span class="accent-word">sem ruído</span> no celular.
               </h2>
               <p class="section-intro__lead">
-                Em formato de canal de transmissão, você recebe apenas as publicações com foto do equipamento, resumo direto e valores de referência — sem conversas paralelas interrompendo a leitura.
+                Você recebe foto do equipamento, resumo direto e link da loja — sem centenas de mensagens aleatórias interrompendo o seu dia.
               </p>
 
-              <div class="demo-disclaimer" role="note" aria-label="Aviso de demonstração ilustrativa">
-                <span class="demo-disclaimer__badge">SIMULAÇÃO VISUAL</span>
+              <div class="demo-disclaimer" role="note" aria-label="Aviso de simulação ilustrativa">
+                <span class="demo-disclaimer__badge">Simulação visual</span>
                 <p class="demo-disclaimer__text">
-                  <strong>Atenção:</strong> todos os produtos, preços anteriores, preços promocionais e percentuais abaixo são <strong>exemplos fictícios e exclusivamente ilustrativos</strong> para demonstrar o visual das postagens neste site. Não representam ofertas vigentes.
+                  <strong>Nota de transparência:</strong> os 3 cartões abaixo usam produtos e valores fictícios apenas para ilustrar o formato das postagens. As ofertas reais são publicadas diretamente no Telegram.
                 </p>
               </div>
             </div>
           </div>
 
-          <!-- Realistic Telegram Channel Broadcast Stream -->
-          <div class="tg-showcase" role="region" aria-label="Demonstração ilustrativa de publicações do canal Tralha Secreta no Telegram">
+          <div class="tg-showcase" role="region" aria-label="Exemplos ilustrativos de publicações do canal">
             <div class="tg-showcase__bar">
               <div class="tg-showcase__identity">
                 <img
                   class="tg-showcase__avatar"
-                  src="./src/assets/images/emblema-tralha-secreta.webp"
+                  src="./assets/images/emblema-tralha-secreta.webp"
                   width="280"
                   height="280"
                   loading="lazy"
                   decoding="async"
-                  alt="Avatar do canal Tralha Secreta"
+                  alt="Avatar Tralha Secreta"
                 />
-                <div class="tg-showcase__meta">
+                <div>
                   <div class="tg-showcase__title-row">
                     <span class="tg-showcase__name">Tralha Secreta</span>
-                    <span class="tg-showcase__channel-tag">Canal de Transmissão</span>
+                    <span class="tg-showcase__channel-tag">Canal Oficial</span>
                   </div>
-                  <span class="tg-showcase__status">Prévia demonstrativa • Exemplos fictícios de formatação</span>
+                  <span class="tg-showcase__status">Prévia ilustrativa de formatação das postagens</span>
                 </div>
               </div>
-
-              <span class="tg-showcase__mode-pill">DEMONSTRAÇÃO DO SITE</span>
             </div>
 
-            <div class="tg-showcase__pinned">
-              <span class="tg-showcase__pinned-bar" aria-hidden="true"></span>
-              <p class="tg-showcase__pinned-text">
-                <strong>Mensagem demonstrativa:</strong> Os 4 cartões de transmissão abaixo utilizam modelos e valores fictícios para ilustrar como as categorias de pesca aparecem no canal.
-              </p>
-            </div>
+            <p class="tg-showcase__swipe-hint" aria-hidden="true">Deslize para ver os exemplos →</p>
 
             <div class="tg-stream">
-              <!-- Illustrative Post 1: Fishing Reels & Baitcasting Reels -->
+              <!-- Card Ilustrativo 1 -->
               <article class="tg-post">
                 <header class="tg-post__header">
                   <span class="tg-post__author">Tralha Secreta</span>
-                  <span class="tg-post__fictional-pill">OFERTA ILUSTRATIVA</span>
+                  <span class="tg-post__fictional-pill">Exemplo ilustrativo</span>
                 </header>
-
                 <div class="tg-post__media">
                   <img
                     class="tg-post__img"
-                    src="./src/assets/images/preview-reels.webp"
-                    width="640"
-                    height="478"
+                    src="./assets/images/preview-kitpesca.webp"
+                    width="1200"
+                    height="1200"
                     loading="lazy"
                     decoding="async"
-                    alt="Exemplo ilustrativo mostrando uma carretilha de perfil baixo preta fosca ao lado de um molinete grafite com detalhes dourados sobre pedra escura"
+                    alt="Kit de Pesca Completo Pescamping com 3 Varas Telescópicas e 3 Molinetes de Fibra de Vidro, Maleta e Acessórios"
                   />
-                  <span class="tg-post__discount-badge">-28% ILUSTRATIVO</span>
+                  <span class="tg-post__discount-badge">-61% OFF</span>
                 </div>
-
                 <div class="tg-post__content">
-                  <p class="tg-post__callout">🎣 OLHA ESSA OPORTUNIDADE! • EXEMPLO ILUSTRATIVO</p>
-                  <h3 class="tg-post__product">
-                    Conjunto Carretilha Perfil Baixo 8.1:1 + Molinete Grafite — Modelo Fictício
-                  </h3>
+                  <h3 class="tg-post__product">Kit de Pesca Completo Pescamping com 3 Varas Telescópicas</h3>
                   <p class="tg-post__message">
-                    Combinação pensada para quem alterna arremessos precisos com iscas artificiais e trabalho versátil na meia-água.
+                   Kit de pesca completo e barato, tudo que você precisa para uma excelente pescaria.
                   </p>
-
-                  <div class="tg-post__pricing" aria-label="Comparativo de preços fictícios e ilustrativos">
-                    <div class="tg-post__price-old-group">
-                      <span class="tg-post__price-label">Preço anterior fictício</span>
-                      <s class="tg-post__price-old">R$ 480,00</s>
-                    </div>
-                    <div class="tg-post__price-new-group">
-                      <span class="tg-post__price-label">Valor promocional ilustrativo</span>
-                      <span class="tg-post__price-new">R$ 345,60</span>
-                    </div>
-                    <span class="tg-post__saving-tag">28% OFF fictício</span>
+                  <div class="tg-post__pricing" aria-label="Valores meramente ilustrativos">
+                    <s class="tg-post__price-old">R$ 180,00</s>
+                    <span class="tg-post__price-new">R$ 56,80</span>
                   </div>
-
-                  <footer class="tg-post__footer">
-                    <span class="tg-post__disclaimer-inline">Produto e preços fictícios • Apenas demonstração</span>
-                    <span class="tg-post__time" aria-hidden="true">06:15</span>
-                  </footer>
                 </div>
               </article>
 
-              <!-- Illustrative Post 2: Fishing Rods & Lines -->
-              <article class="tg-post tg-post--offset">
-                <header class="tg-post__header">
-                  <span class="tg-post__author">Tralha Secreta</span>
-                  <span class="tg-post__fictional-pill">OFERTA ILUSTRATIVA</span>
-                </header>
-
-                <div class="tg-post__media">
-                  <img
-                    class="tg-post__img"
-                    src="./src/assets/images/preview-rod-line.webp"
-                    width="640"
-                    height="478"
-                    loading="lazy"
-                    decoding="async"
-                    alt="Exemplo ilustrativo de vara de pesca em fibra de carbono com cabo bipartido ao lado de um carretel de linha multifilamento verde-escura"
-                  />
-                  <span class="tg-post__discount-badge">-24% ILUSTRATIVO</span>
-                </div>
-
-                <div class="tg-post__content">
-                  <p class="tg-post__callout">⚡ CONJUNTO EQUILIBRADO! • EXEMPLO ILUSTRATIVO</p>
-                  <h3 class="tg-post__product">
-                    Vara Carbono Ação Rápida 5'8" 17lb + Linha Multifilamento 8X — Modelo Fictício
-                  </h3>
-                  <p class="tg-post__message">
-                    Sensibilidade no blank tubular e baixa elasticidade na linha trançada para leitura limpa de estruturas submersas.
-                  </p>
-
-                  <div class="tg-post__pricing" aria-label="Comparativo de preços fictícios e ilustrativos">
-                    <div class="tg-post__price-old-group">
-                      <span class="tg-post__price-label">Preço anterior fictício</span>
-                      <s class="tg-post__price-old">R$ 360,00</s>
-                    </div>
-                    <div class="tg-post__price-new-group">
-                      <span class="tg-post__price-label">Valor promocional ilustrativo</span>
-                      <span class="tg-post__price-new">R$ 273,60</span>
-                    </div>
-                    <span class="tg-post__saving-tag">24% OFF fictício</span>
-                  </div>
-
-                  <footer class="tg-post__footer">
-                    <span class="tg-post__disclaimer-inline">Produto e preços fictícios • Apenas demonstração</span>
-                    <span class="tg-post__time" aria-hidden="true">07:42</span>
-                  </footer>
-                </div>
-              </article>
-
-              <!-- Illustrative Post 3: Artificial Lures & Hooks -->
+              <!-- Card Ilustrativo 2 -->
               <article class="tg-post">
                 <header class="tg-post__header">
                   <span class="tg-post__author">Tralha Secreta</span>
-                  <span class="tg-post__fictional-pill">OFERTA ILUSTRATIVA</span>
+                  <span class="tg-post__fictional-pill">Exemplo ilustrativo</span>
                 </header>
-
                 <div class="tg-post__media">
                   <img
                     class="tg-post__img"
-                    src="./src/assets/images/preview-lures.webp"
-                    width="640"
-                    height="478"
+                    src="./assets/images/preview-shimanu.webp"
+                    width="1024"
+                    height="1024"
                     loading="lazy"
                     decoding="async"
-                    alt="Exemplo ilustrativo com cinco iscas artificiais de água doce entre popper, zara, minnow e crankbaits acompanhadas de anzóis offset"
+                    alt="Vara de pesca em fibra de carbono com cabo bipartido e carretel de linha multifilamento"
                   />
-                  <span class="tg-post__discount-badge">-31% ILUSTRATIVO</span>
+                  <span class="tg-post__discount-badge">-46% OFF</span>
                 </div>
-
                 <div class="tg-post__content">
-                  <p class="tg-post__callout">🔥 REFORÇO PARA O ESTOJO! • EXEMPLO ILUSTRATIVO</p>
-                  <h3 class="tg-post__product">
-                    Seleção 5 Iscas Artificiais Superfície &amp; Meia-Água + Anzóis Offset — Modelo Fictício
-                  </h3>
+                  <h3 class="tg-post__product">Molinete Shimano Fx Fc 4000 Cor Preto/Dourado Lado da manivela Direito/Esquerdo</h3>
                   <p class="tg-post__message">
-                    Opções de nado em zara, popper e plugs de barbela acompanhadas de anzóis afiados para montagens anti-enrosco.
+O molinete FX da Shimano é um modelo consagrado entre os pescadores.
                   </p>
-
-                  <div class="tg-post__pricing" aria-label="Comparativo de preços fictícios e ilustrativos">
-                    <div class="tg-post__price-old-group">
-                      <span class="tg-post__price-label">Preço anterior fictício</span>
-                      <s class="tg-post__price-old">R$ 195,00</s>
-                    </div>
-                    <div class="tg-post__price-new-group">
-                      <span class="tg-post__price-label">Valor promocional ilustrativo</span>
-                      <span class="tg-post__price-new">R$ 134,55</span>
-                    </div>
-                    <span class="tg-post__saving-tag">31% OFF fictício</span>
+                  <div class="tg-post__pricing" aria-label="Valores meramente ilustrativos">
+                    <s class="tg-post__price-old">R$ 150,00</s>
+                    <span class="tg-post__price-new">R$ 79,99</span>
                   </div>
-
-                  <footer class="tg-post__footer">
-                    <span class="tg-post__disclaimer-inline">Produto e preços fictícios • Apenas demonstração</span>
-                    <span class="tg-post__time" aria-hidden="true">09:18</span>
-                  </footer>
                 </div>
               </article>
-
-              <!-- Illustrative Post 4: Fishing Accessories & Tackle Boxes -->
-              <article class="tg-post tg-post--offset">
+            
+              <!-- Card Ilustrativo 3 -->
+              <article class="tg-post">
                 <header class="tg-post__header">
                   <span class="tg-post__author">Tralha Secreta</span>
-                  <span class="tg-post__fictional-pill">OFERTA ILUSTRATIVA</span>
+                  <span class="tg-post__fictional-pill">Exemplo ilustrativo</span>
                 </header>
-
                 <div class="tg-post__media">
                   <img
                     class="tg-post__img"
-                    src="./src/assets/images/preview-tacklebox.webp"
-                    width="640"
-                    height="478"
+                    src="./assets/images/preview-camisapesca.webp"
+                    width="819"
+                    height="1200"
                     loading="lazy"
                     decoding="async"
-                    alt="Exemplo ilustrativo de bolsa de pesca verde-oliva aberta com estojos organizadores transparentes e alicate anodizado preto e dourado"
+                    alt="Cinco iscas artificiais de superfície e meia-água acompanhadas de anzóis offset"
                   />
-                  <span class="tg-post__discount-badge">-26% ILUSTRATIVO</span>
+                  <span class="tg-post__discount-badge">-31% OFF</span>
                 </div>
-
                 <div class="tg-post__content">
-                  <p class="tg-post__callout">🧰 PRATICIDADE NO BARCO! • EXEMPLO ILUSTRATIVO</p>
-                  <h3 class="tg-post__product">
-                    Bolsa Estanque com Estojos Modulares + Alicate de Contenção — Modelo Fictício
-                  </h3>
+                  <h3 class="tg-post__product">Camisa Pesca Capuz Camuflada Com Proteção Uv50+</h3>
                   <p class="tg-post__message">
-                    Organização rápida por divisórias transparentes e ferramenta resistente à umidade para jornadas inteiras na água.
+                    Camisetas com excelência em qualidade feitas com tecido ADVANCED DR.
                   </p>
-
-                  <div class="tg-post__pricing" aria-label="Comparativo de preços fictícios e ilustrativos">
-                    <div class="tg-post__price-old-group">
-                      <span class="tg-post__price-label">Preço anterior fictício</span>
-                      <s class="tg-post__price-old">R$ 310,00</s>
-                    </div>
-                    <div class="tg-post__price-new-group">
-                      <span class="tg-post__price-label">Valor promocional ilustrativo</span>
-                      <span class="tg-post__price-new">R$ 229,40</span>
-                    </div>
-                    <span class="tg-post__saving-tag">26% OFF fictício</span>
+                  <div class="tg-post__pricing" aria-label="Valores meramente ilustrativos">
+                    <s class="tg-post__price-old">R$ 119,00</s>
+                    <span class="tg-post__price-new">R$ 83,99</span>
                   </div>
-
-                  <footer class="tg-post__footer">
-                    <span class="tg-post__disclaimer-inline">Produto e preços fictícios • Apenas demonstração</span>
-                    <span class="tg-post__time" aria-hidden="true">11:05</span>
-                  </footer>
                 </div>
               </article>
             </div>
 
             <div class="tg-showcase__cta-bar">
               <p class="tg-showcase__cta-copy">
-                Quer acompanhar as publicações reais divulgadas no canal? Acesse gratuitamente pelo Telegram:
+                Quer receber as oportunidades reais assim que forem publicadas? Entre gratuitamente:
               </p>
               <a
                 class="btn-cta btn-cta--primary"
-                data-channel-link="telegram"
-                data-cta-location="preview"
-                href="#hero"
+                href="https://t.me/tralhasecreta"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-telegram-cta="preview"
               >
                 <svg class="btn-cta__icon" viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true">
                   <path
@@ -443,7 +340,7 @@
 
       <img
         class="river-contour-divider"
-        src="./src/assets/textures/river-profile.svg"
+        src="./assets/textures/river-profile.svg"
         width="1200"
         height="72"
         loading="lazy"
@@ -451,205 +348,155 @@
         aria-hidden="true"
       />
 
-      <!-- Section 3: Fishing Product Categories — Asymmetric Editorial Dossier (Phase 3) -->
-      <section id="categorias" class="editorial-spread categories-section" aria-labelledby="categorias-heading">
+      <!-- Seção 3: Categorias de Equipamentos (Grade Compacta 2x2) -->
+      <section id="categorias" class="editorial-spread" aria-labelledby="categorias-heading">
         <div class="container">
           <div class="section-intro">
             <div class="section-intro__meta">
               <span class="depth-marker">
                 <span class="depth-marker__dot" aria-hidden="true"></span>
-                08.2m • Estrutura &amp; Tralha
+                08.2m • O Que Acompanhamos
               </span>
               <span class="section-intro__watermark" aria-hidden="true">02</span>
             </div>
 
-            <div class="section-intro__body">
-              <span class="mono-kicker">Categorias Compartilhadas no Canal</span>
+            <div>
+              <span class="mono-kicker">Categorias do Canal</span>
               <h2 id="categorias-heading" class="section-intro__heading">
                 Do arremesso de superfície à <span class="accent-word">organização</span> no barco.
               </h2>
               <p class="section-intro__lead">
-                Conheça as principais frentes de equipamentos e artigos de pesca que pautam as oportunidades reunidas pela Tralha Secreta.
+                Principais frentes de equipamentos para pesca esportiva e recreativa que pautam o garimpo da Tralha Secreta.
               </p>
             </div>
           </div>
 
-          <div class="category-dossier">
-            <!-- Category 01: Carretilhas e molinetes -->
-            <article class="category-chapter">
-              <figure class="category-chapter__figure">
-                <div class="category-chapter__frame">
-                  <img
-                    class="category-chapter__img"
-                    src="./src/assets/images/tackle-detail.webp"
-                    width="960"
-                    height="717"
-                    loading="lazy"
-                    decoding="async"
-                    alt="Carretilha de perfil baixo abastecida com linha multifilamento ao lado de isca artificial sobre madeira úmida ao amanhecer"
-                  />
-                </div>
-                <figcaption class="category-chapter__caption">
-                  <span>Controle Centrífugo &amp; Fricção</span>
-                  <span>08.2m • Arremesso</span>
-                </figcaption>
-              </figure>
-
-              <div class="category-chapter__content">
-                <div class="category-chapter__index">
-                  <span class="category-chapter__num">01</span>
-                  <span class="category-chapter__line" aria-hidden="true"></span>
-                  <span class="category-chapter__tag">Mecânica de Precisão</span>
-                </div>
-                <h3 class="category-chapter__title">Carretilhas e molinetes</h3>
-                <p class="category-chapter__desc">
-                  Modelos de perfil baixo, redondo e molinetes para diferentes modalidades — de conjuntos leves para iscas artificiais até equipamentos com maior capacidade de linha e tração de freio.
+          <div class="category-grid">
+            <article class="category-card">
+              <div class="category-card__media">
+                <img
+                  class="category-card__img"
+                  src="./assets/images/tackle-detail.webp"
+                  width="960"
+                  height="717"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Carretilha de perfil baixo com linha multifilamento ao lado de isca artificial sobre madeira úmida"
+                />
+              </div>
+              <div class="category-card__body">
+                <span class="category-card__meta">01 • Mecânica de Precisão</span>
+                <h3 class="category-card__title">Carretilhas e molinetes</h3>
+                <p class="category-card__desc">
+                  Perfil baixo, perfil redondo e molinetes leves a pesados com ótimo custo-benefício de freio e recolhimento.
                 </p>
-                <ul class="category-chapter__specs" aria-label="Itens frequentes em carretilhas e molinetes">
-                  <li>Perfil baixo &amp; redondo</li>
-                  <li>Molinetes leves e médios</li>
-                  <li>Recolhimento &amp; freio</li>
-                </ul>
               </div>
             </article>
 
-            <!-- Category 02: Varas e linhas -->
-            <article class="category-chapter category-chapter--reverse">
-              <figure class="category-chapter__figure">
-                <div class="category-chapter__frame">
-                  <img
-                    class="category-chapter__img"
-                    src="./src/assets/images/category-rods-lines.webp"
-                    width="880"
-                    height="657"
-                    loading="lazy"
-                    decoding="async"
-                    alt="Detalhe de passador cerâmico em vara de carbono com linha multifilamento esticada e gotas de orvalho ao nascer do sol no rio"
-                  />
-                </div>
-                <figcaption class="category-chapter__caption">
-                  <span>Carbono Tubular &amp; Multifilamento</span>
-                  <span>09.0m • Sensibilidade</span>
-                </figcaption>
-              </figure>
-
-              <div class="category-chapter__content">
-                <div class="category-chapter__index">
-                  <span class="category-chapter__num">02</span>
-                  <span class="category-chapter__line" aria-hidden="true"></span>
-                  <span class="category-chapter__tag">Leitura de Toque</span>
-                </div>
-                <h3 class="category-chapter__title">Varas e linhas</h3>
-                <p class="category-chapter__desc">
-                  Varas inteiriças, bipartidas ou telescópicas para carretilha e molinete, além de carretéis de multifilamento, fluorocarbono para leader e monofilamento resistente à abrasão.
+            <article class="category-card">
+              <div class="category-card__media">
+                <img
+                  class="category-card__img"
+                  src="./assets/images/category-rods-lines.webp"
+                  width="880"
+                  height="657"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Passador cerâmico em vara de carbono com linha multifilamento esticada ao amanhecer no rio"
+                />
+              </div>
+              <div class="category-card__body">
+                <span class="category-card__meta">02 • Leitura de Toque</span>
+                <h3 class="category-card__title">Varas e linhas</h3>
+                <p class="category-card__desc">
+                  Varas inteiriças, bipartidas e telescópicas, além de carretéis de multifilamento 4X/8X, fluorocarbono e monofilamento.
                 </p>
-                <ul class="category-chapter__specs" aria-label="Itens frequentes em varas e linhas">
-                  <li>Blanks de carbono &amp; fibra</li>
-                  <li>Multifilamento 4X e 8X</li>
-                  <li>Fluorocarbono &amp; monofilamento</li>
-                </ul>
               </div>
             </article>
 
-            <!-- Category 03: Iscas artificiais e anzóis -->
-            <article class="category-chapter">
-              <figure class="category-chapter__figure">
-                <div class="category-chapter__frame">
-                  <img
-                    class="category-chapter__img"
-                    src="./src/assets/images/category-lures-hooks.webp"
-                    width="880"
-                    height="657"
-                    loading="lazy"
-                    decoding="async"
-                    alt="Iscas artificiais esportivas de hélice, meia-água articulada e jig de penacho ao lado de anzóis e snaps em madeira de barco ao amanhecer"
-                  />
-                </div>
-                <figcaption class="category-chapter__caption">
-                  <span>Superfície, Meia-Água &amp; Fundo</span>
-                  <span>09.8m • Ataque</span>
-                </figcaption>
-              </figure>
-
-              <div class="category-chapter__content">
-                <div class="category-chapter__index">
-                  <span class="category-chapter__num">03</span>
-                  <span class="category-chapter__line" aria-hidden="true"></span>
-                  <span class="category-chapter__tag">Apresentação &amp; Fisgada</span>
-                </div>
-                <h3 class="category-chapter__title">Iscas artificiais e anzóis</h3>
-                <p class="category-chapter__desc">
-                  Plugs de superfície (zaras, poppers e hélices), iscas de meia-água, softbaits, jigs, garatéias reforçadas, anzóis offset, circulares e ferragens de conexão rápida.
+            <article class="category-card">
+              <div class="category-card__media">
+                <img
+                  class="category-card__img"
+                  src="./assets/images/category-lures-hooks.webp"
+                  width="880"
+                  height="657"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Iscas artificiais esportivas de superfície, meia-água e jig ao lado de anzóis e snaps"
+                />
+              </div>
+              <div class="category-card__body">
+                <span class="category-card__meta">03 • Apresentação &amp; Fisgada</span>
+                <h3 class="category-card__title">Iscas artificiais e anzóis</h3>
+                <p class="category-card__desc">
+                  Zaras, poppers, hélices, plugs de meia-água, jigs, softbaits, garatéias reforçadas, anzóis offset e snaps.
                 </p>
-                <ul class="category-chapter__specs" aria-label="Itens frequentes em iscas artificiais e anzóis">
-                  <li>Zaras, poppers &amp; plugs</li>
-                  <li>Jigs &amp; iscas soft</li>
-                  <li>Anzóis, garatéias &amp; snaps</li>
-                </ul>
               </div>
             </article>
 
-            <!-- Category 04: Caixas, vestuário e acessórios -->
-            <article class="category-chapter category-chapter--reverse">
-              <figure class="category-chapter__figure">
-                <div class="category-chapter__frame">
-                  <img
-                    class="category-chapter__img"
-                    src="./src/assets/images/category-boxes-apparel.webp"
-                    width="880"
-                    height="657"
-                    loading="lazy"
-                    decoding="async"
-                    alt="Maleta estanque de pesca, óculos polarizados âmbar, camisa de proteção solar verde-oliva e alicates sobre o convés de um barco no rio"
-                  />
-                </div>
-                <figcaption class="category-chapter__caption">
-                  <span>Proteção UV &amp; Beira d'Água</span>
-                  <span>10.6m • Jornada</span>
-                </figcaption>
-              </figure>
-
-              <div class="category-chapter__content">
-                <div class="category-chapter__index">
-                  <span class="category-chapter__num">04</span>
-                  <span class="category-chapter__line" aria-hidden="true"></span>
-                  <span class="category-chapter__tag">Conforto &amp; Apoio</span>
-                </div>
-                <h3 class="category-chapter__title">Caixas, vestuário e acessórios</h3>
-                <p class="category-chapter__desc">
-                  Caixas organizadoras, bolsas impermeáveis, alicates de bico e contenção, óculos polarizados, camisas com proteção UV, bonés e itens práticos para barranco, caiaque ou embarcação.
+            <article class="category-card">
+              <div class="category-card__media">
+                <img
+                  class="category-card__img"
+                  src="./assets/images/category-boxes-apparel.webp"
+                  width="880"
+                  height="657"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Maleta estanque de pesca, óculos polarizados, camisa UV e alicates no convés do barco"
+                />
+              </div>
+              <div class="category-card__body">
+                <span class="category-card__meta">04 • Conforto &amp; Apoio</span>
+                <h3 class="category-card__title">Caixas, vestuário e acessórios</h3>
+                <p class="category-card__desc">
+                  Estojos organizadores, bolsas impermeáveis, alicates de contenção, óculos polarizados e camisas com proteção UV.
                 </p>
-                <ul class="category-chapter__specs" aria-label="Itens frequentes em caixas, vestuário e acessórios">
-                  <li>Caixas &amp; bolsas estanches</li>
-                  <li>Camisas UV &amp; polarizados</li>
-                  <li>Alicates &amp; contenção</li>
-                </ul>
               </div>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- Section 4: Preserved Editorial Spread (Phase 4) -->
+      <!-- Seção 4: Diferenciais Práticos do Canal -->
       <section id="diferenciais" class="editorial-spread" aria-labelledby="diferenciais-heading">
         <div class="container">
           <div class="spread-rig">
             <div>
               <span class="depth-marker">
                 <span class="depth-marker__dot" aria-hidden="true"></span>
-                11.4m • Canal Principal
+                11.4m • Por Que Acompanhar pelo Telegram
               </span>
-              <h2 id="diferenciais-heading" class="spread-rig__quote" style="margin-top: var(--space-4);">
-                Silêncio no rio. <span class="accent-word">Clareza</span> em cada publicação.
+              <h2 id="diferenciais-heading" class="spread-rig__quote">
+                Menos tempo caçando abas. <span class="accent-word">Mais tempo</span> na água.
               </h2>
-              <p class="spread-rig__body">
-                Assim como na pesca esportiva a leitura calma da água vale mais que o barulho, um canal de transmissão no Telegram entrega apenas as publicações de ofertas e achados, sem conversas paralelas interrompendo o seu dia.
-              </p>
+
+              <div class="value-pillars">
+                <div class="value-pillars__item">
+                  <h3 class="value-pillars__title">Canal silencioso, sem bagunça de grupo</h3>
+                  <p class="value-pillars__desc">
+                    Apenas a equipe publica no canal. Sem correntes, sem bate-papo paralelo e com opção de silenciar notificações quando preferir.
+                  </p>
+                </div>
+                <div class="value-pillars__item">
+                  <h3 class="value-pillars__title">Oportunidades reunidas em um só lugar</h3>
+                  <p class="value-pillars__desc">
+                    Promos e cupons de grandes marketplaces e lojas de pesca filtrados para você conferir em segundos pelo celular.
+                  </p>
+                </div>
+                <div class="value-pillars__item">
+                  <h3 class="value-pillars__title">Entrada livre e sem cadastro</h3>
+                  <p class="value-pillars__desc">
+                    Não pedimos e-mail, telefone nem dados pessoais nesta página. Basta clicar, abrir no Telegram e acompanhar.
+                  </p>
+                </div>
+              </div>
             </div>
 
             <img
               class="spread-rig__diagram"
-              src="./src/assets/textures/hook-rig.svg"
+              src="./assets/textures/hook-rig.svg"
               width="360"
               height="420"
               loading="lazy"
@@ -660,43 +507,133 @@
         </div>
       </section>
 
-      <!-- Section 5: Preserved Atmospheric Closing (Phase 4) -->
+      <!-- Seção 5: Chamada Final de Conversão (Agora com Botão Direto) -->
       <section id="conversao-final" class="horizon-close" aria-labelledby="cta-final-heading">
         <div class="container horizon-close__inner">
           <span class="mono-kicker">14.0m • De Pescador Para Pescador</span>
           <h2 id="cta-final-heading" class="horizon-close__title">
-            Equipamento preparado para quando a oportunidade bater na linha.
+            Equipamento certo para quando a oportunidade bater na linha.
           </h2>
           <p class="horizon-close__sub">
-            Uma experiência digital construída para quem respeita o rio, valoriza bons equipamentos e acompanha promoções de artigos de pesca.
+            Entre gratuitamente no canal oficial da Tralha Secreta no Telegram e acompanhe as próximas publicações de ofertas.
           </p>
+          <div class="horizon-close__actions">
+            <a
+              class="btn-cta btn-cta--primary"
+              href="https://t.me/tralhasecreta"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-telegram-cta="final"
+            >
+              <svg class="btn-cta__icon" viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true">
+                <path
+                  d="M21.2 4.4 2.9 11.5c-.8.3-.8 1.4.1 1.7l4.6 1.5 1.8 5.4c.2.7 1.1.9 1.6.4l2.6-2.5 4.8 3.5c.7.5 1.7.1 1.9-.8l2.5-15.1c.2-.9-.7-1.6-1.6-1.2ZM8.4 14.3l9.2-5.7c.2-.1.4.1.2.3l-7.6 6.9-.3 3.2-1.5-4.7Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span>ENTRAR NO CANAL DO TELEGRAM</span>
+              <svg class="btn-cta__arrow" viewBox="0 0 20 20" width="18" height="18" fill="none" aria-hidden="true">
+                <path
+                  d="M4.167 10h11.666m0 0L10.833 5m5 5-5 5"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
         </div>
       </section>
     </main>
 
-    <!-- Brand Footer (Full affiliate & LGPD disclosures arrive in Phase 4/5) -->
-    <footer id="rodape" class="site-footer" aria-label="Rodapé da marca Tralha Secreta">
+    <!-- Rodapé Completo: Transparência de Afiliados e Privacidade LGPD -->
+    <footer id="rodape" class="site-footer" aria-label="Rodapé institucional e legal">
       <div class="container site-footer__inner">
-        <div class="site-footer__brand">
-          <img
-            class="site-footer__emblem"
-            src="./src/assets/images/emblema-tralha-secreta.webp"
-            width="280"
-            height="280"
-            loading="lazy"
-            alt="Emblema Tralha Secreta"
-          />
-          <div>
-            <span class="brand-lockup__name">Tralha Secreta</span>
-            <p class="site-footer__note">
-              Canal no Telegram dedicado à divulgação de promoções e oportunidades de artigos de pesca esportiva e recreativa.
-            </p>
+        <div class="site-footer__top">
+          <div class="site-footer__brand">
+            <img
+              class="site-footer__emblem"
+              src="./assets/images/emblema-tralha-secreta.webp"
+              width="280"
+              height="280"
+              loading="lazy"
+              alt="Emblema Tralha Secreta"
+            />
+            <div>
+              <span class="brand-lockup__name">Tralha Secreta</span>
+              <p class="site-footer__note">
+                Canal independente no Telegram dedicado à divulgação de promoções e oportunidades de artigos de pesca esportiva e recreativa.
+              </p>
+            </div>
+          </div>
+          <span class="depth-marker">Tralha Secreta • Brasil</span>
+        </div>
+
+        <p class="site-footer__affiliate">
+          <strong>Transparência sobre links e preços:</strong> A Tralha Secreta não vende produtos diretamente. As publicações do canal podem conter links de programas de afiliados de lojas e marketplaces parceiros — caso você compre por eles, podemos receber uma comissão sem nenhum custo extra para você. Os preços, cupons e estoques são definidos pelas lojas vendedoras e podem sofrer alterações a qualquer momento.
+        </p>
+
+        <div class="site-footer__bottom">
+          <span>© Tralha Secreta. Todos os direitos reservados.</span>
+          <div class="site-footer__links">
+            <a class="footer-link" href="./privacidade.html">Política de Privacidade (LGPD)</a>
+            <button type="button" class="footer-link" data-open-consent>Preferências de Cookies</button>
+            <a
+              class="footer-link"
+              href="https://t.me/tralhasecreta"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-telegram-cta="footer"
+            >
+              Canal Oficial no Telegram
+            </a>
           </div>
         </div>
-        <span class="depth-marker">Tralha Secreta • Brasil</span>
       </div>
     </footer>
 
-    <script type="module" src="./src/main.js"></script>
+    <!-- Barra Móvel Inteligente (Exibida apenas no mobile quando Hero e CTA final não estão na tela e sem banner aberto) -->
+    <div id="sticky-cta" class="sticky-cta" role="region" aria-label="Atalho rápido para o canal no Telegram" hidden>
+      <a
+        class="btn-cta btn-cta--primary"
+        href="https://t.me/tralhasecreta"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-telegram-cta="sticky"
+      >
+        <svg class="btn-cta__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
+          <path
+            d="M21.2 4.4 2.9 11.5c-.8.3-.8 1.4.1 1.7l4.6 1.5 1.8 5.4c.2.7 1.1.9 1.6.4l2.6-2.5 4.8 3.5c.7.5 1.7.1 1.9-.8l2.5-15.1c.2-.9-.7-1.6-1.6-1.2ZM8.4 14.3l9.2-5.7c.2-.1.4.1.2.3l-7.6 6.9-.3 3.2-1.5-4.7Z"
+            fill="currentColor"
+          />
+        </svg>
+        <span>ENTRAR NO CANAL GRATUITO</span>
+      </a>
+    </div>
+
+    <!-- Banner Enxuto de Consentimento de Cookies (LGPD) -->
+    <aside
+      id="cookie-banner"
+      class="cookie-banner"
+      role="region"
+      aria-label="Preferências de cookies e privacidade"
+      hidden
+    >
+      <div class="cookie-banner__inner">
+        <p class="cookie-banner__text">
+          Utilizamos cookies opcionais de medição publicitária (Meta Pixel) para avaliar o desempenho das nossas campanhas de divulgação. Você pode aceitar ou manter apenas o funcionamento essencial. Saiba mais na
+          <a class="footer-link" href="./privacidade.html">Política de Privacidade</a>.
+        </p>
+        <div class="cookie-banner__actions">
+          <button type="button" class="btn-consent btn-consent--accept" data-consent-action="accept">
+            Aceitar medição
+          </button>
+          <button type="button" class="btn-consent btn-consent--reject" data-consent-action="reject">
+            Apenas essenciais
+          </button>
+        </div>
+      </div>
+    </aside>
   </body>
 </html>
