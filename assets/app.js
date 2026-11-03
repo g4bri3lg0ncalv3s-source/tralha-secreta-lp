@@ -2,9 +2,9 @@
  * Tralha Secreta — Script Único de Conversão, Privacidade (LGPD) e UI Mobile
  * Arquitetura Zero-Build (Vanilla JS, sem dependências externas).
  *
- * IMPORTANTE: Os links para https://t.me/tralhasecreta estão declarados diretamente
- * no HTML e funcionam mesmo sem JavaScript. Este script atua exclusivamente como
- * camada progressiva para consentimento LGPD, Meta Pixel, UTMs e Smart Sticky CTA.
+ * IMPORTANTE: Os links para a Comunidade do WhatsApp e para o Canal do Telegram estão
+ * declarados diretamente no HTML e funcionam mesmo sem JavaScript. Este script atua
+ * exclusivamente como camada progressiva para consentimento LGPD, Meta Pixel, UTMs e Sticky CTA.
  */
 (function () {
   'use strict';
@@ -218,9 +218,9 @@
   }
 
   /* ------------------------------------------------------------------------
-     5. DISPARO SÍNCRONO NÃO-BLOQUEANTE DE CLIQUE NO TELEGRAM
+     5. DISPARO SÍNCRONO NÃO-BLOQUEANTE DE CLIQUES (WHATSAPP & TELEGRAM)
      ------------------------------------------------------------------------ */
-  function trackTelegramClick(ctaLocation) {
+  function trackChannelClick(eventName, destination, ctaLocation) {
     if (getConsent() !== 'granted' || typeof window.fbq !== 'function') {
       return;
     }
@@ -229,17 +229,17 @@
       const utms = captureCampaignUtms();
       window.fbq(
         'trackCustom',
-        'TelegramJoinClick',
+        eventName,
         Object.assign(
           {
             cta_location: ctaLocation || 'unknown',
-            destination: 'telegram_channel',
+            destination: destination,
           },
           utms
         )
       );
     } catch {
-      // Jamais interrompe a abertura nativa do Telegram
+      // Jamais interrompe a abertura nativa do aplicativo (WhatsApp / Telegram)
     }
   }
 
@@ -262,10 +262,17 @@
       const target = event.target instanceof Element ? event.target : null;
       if (!target) return;
 
-      const ctaLink = target.closest('[data-telegram-cta]');
-      if (ctaLink) {
-        // Sem preventDefault(): preserva deep link nativo em WebViews iOS/Android
-        trackTelegramClick(ctaLink.getAttribute('data-telegram-cta'));
+      const waLink = target.closest('[data-whatsapp-cta]');
+      if (waLink) {
+        // Sem preventDefault(): preserva deep link nativo chat.whatsapp.com em iOS/Android
+        trackChannelClick('WhatsAppJoinClick', 'whatsapp_community', waLink.getAttribute('data-whatsapp-cta'));
+        return;
+      }
+
+      const tgLink = target.closest('[data-telegram-cta]');
+      if (tgLink) {
+        // Sem preventDefault(): preserva deep link nativo t.me em WebViews iOS/Android
+        trackChannelClick('TelegramJoinClick', 'telegram_channel', tgLink.getAttribute('data-telegram-cta'));
         return;
       }
 
