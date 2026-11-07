@@ -10,9 +10,8 @@
   'use strict';
 
   const CONFIG = {
-    // Preencha com o ID numérico do Meta Pixel ao iniciar campanhas (ex: '123456789012345').
-    // Enquanto vazio (''), nenhum script externo é requisitado.
-    metaPixelId: '',
+    // ID oficial do Meta Pixel da Tralha Secreta.
+    metaPixelId: '2412554752613262',
     consentKey: 'ts_lgpd_consent_v1',
     utmKey: 'ts_campaign_utms_v1',
   };
