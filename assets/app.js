@@ -1,16 +1,11 @@
 /**
- * Tralha Secreta — Script Único de Conversão, Privacidade (LGPD) e UI Mobile
- * Arquitetura Zero-Build (Vanilla JS, sem dependências externas).
- *
- * IMPORTANTE: Os links para a Comunidade do WhatsApp e para o Canal do Telegram estão
- * declarados diretamente no HTML e funcionam mesmo sem JavaScript. Este script atua
- * exclusivamente como camada progressiva para consentimento LGPD, Meta Pixel, UTMs e Sticky CTA.
+ * Tralha Secreta — Script de Alta Conversão, Urgência Dinâmica e Meta Pixel
+ * Arquitetura Zero-Build (Vanilla JS).
  */
 (function () {
   'use strict';
 
   const CONFIG = {
-    // ID oficial do Meta Pixel da Tralha Secreta.
     metaPixelId: '2412554752613262',
     consentKey: 'ts_lgpd_consent_v1',
     utmKey: 'ts_campaign_utms_v1',
@@ -18,11 +13,19 @@
 
   const UTM_PARAMS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
   let pixelBootstrapped = false;
-  let heroInView = true;
-  let finalCtaInView = false;
+  let pageViewTracked = false;
+
+  const URGENCY_MESSAGES = [
+    '🔥 Mais de 1.000 pessoas já economizaram com a gente!',
+    '⚠️ Vagas limitadas: o grupo atual está 95% preenchido!',
+    '⚡ Marcos S. acabou de entrar no grupo pelo WhatsApp!',
+    '🎣 Carretilha com 58% OFF publicada há poucos minutos no grupo!',
+    '⏳ Restam poucas vagas gratuitas antes do link fechar!',
+    '💰 Mais de 1.000 pescadores já garantiram tralha mais barata!',
+  ];
 
   /* ------------------------------------------------------------------------
-     1. ARMAZENAMENTO SEGURO (À PROVA DE MODO ANÔNIMO / WEBVIEW RESTRITA)
+     1. ARMAZENAMENTO SEGURO
      ------------------------------------------------------------------------ */
   function safeGet(storage, key) {
     try {
@@ -36,12 +39,12 @@
     try {
       storage.setItem(key, value);
     } catch {
-      // Falha silenciosa em ambientes com storage bloqueado
+      // Falha silenciosa em ambientes restritos
     }
   }
 
   /* ------------------------------------------------------------------------
-     2. CAPTURA LEVE DE UTMS NA SESSÃO (PARA ATRIBUIÇÃO NO META PIXEL)
+     2. CAPTURA DE UTMS
      ------------------------------------------------------------------------ */
   function captureCampaignUtms() {
     try {
@@ -70,11 +73,15 @@
   }
 
   /* ------------------------------------------------------------------------
-     3. META PIXEL CONDICIONAL & REVOGAÇÃO EFETIVA (LGPD)
+     3. META PIXEL & CONSENTIMENTO LGPD
      ------------------------------------------------------------------------ */
   function getConsent() {
     const val = safeGet(window.localStorage, CONFIG.consentKey);
     return val === 'granted' || val === 'denied' ? val : null;
+  }
+
+  function isTrackingAllowed() {
+    return getConsent() !== 'denied';
   }
 
   function clearFirstPartyMetaCookies() {
@@ -88,13 +95,13 @@
         }
       }
     } catch {
-      // Ignora restrições de cookie em file:// ou sandbox
+      // Ignora restrições locais
     }
   }
 
   function loadMetaPixelIfConfigured() {
     const pixelId = (CONFIG.metaPixelId || '').trim();
-    if (!/^\d{8,20}$/.test(pixelId) || getConsent() !== 'granted') {
+    if (!/^\d{8,20}$/.test(pixelId) || !isTrackingAllowed()) {
       return;
     }
 
@@ -124,7 +131,10 @@
       window.fbq('init', pixelId);
       pixelBootstrapped = true;
     }
-    window.fbq('track', 'PageView');
+    if (!pageViewTracked) {
+      window.fbq('track', 'PageView');
+      pageViewTracked = true;
+    }
   }
 
   function applyConsentChoice(choice) {
@@ -133,6 +143,7 @@
     if (choice === 'granted') {
       loadMetaPixelIfConfigured();
     } else {
+      pageViewTracked = false;
       if (typeof window.fbq === 'function') {
         try {
           window.fbq('consent', 'revoke');
@@ -147,36 +158,14 @@
     closeCookieBanner();
   }
 
-  /* ------------------------------------------------------------------------
-     4. BANNER DE PRIVACIDADE & SMART STICKY CTA (SEM COLISÃO DE BARRAS NO MOBILE)
-     ------------------------------------------------------------------------ */
-  function isBannerVisible() {
-    const banner = document.getElementById('cookie-banner');
-    return Boolean(banner && !banner.hidden);
-  }
-
-  function syncStickyCta() {
-    const sticky = document.getElementById('sticky-cta');
-    if (!sticky) return;
-
-    const shouldShow = !heroInView && !finalCtaInView && !isBannerVisible();
-    sticky.hidden = !shouldShow;
-    document.body.classList.toggle('has-sticky-cta', shouldShow);
-  }
-
   function openCookieBanner() {
     const banner = document.getElementById('cookie-banner');
-    if (!banner) return;
-    banner.hidden = false;
-    syncStickyCta();
+    if (banner) banner.hidden = false;
   }
 
   function closeCookieBanner() {
     const banner = document.getElementById('cookie-banner');
-    if (banner) {
-      banner.hidden = true;
-    }
-    syncStickyCta();
+    if (banner) banner.hidden = true;
   }
 
   function updateConsentStatusLabel() {
@@ -184,77 +173,89 @@
     if (!statusEl) return;
 
     const current = getConsent();
-    if (current === 'granted') {
-      statusEl.textContent = 'Ativo (medição de campanhas autorizada)';
-    } else if (current === 'denied') {
+    if (current === 'denied') {
       statusEl.textContent = 'Apenas essenciais (medição publicitária desativada)';
+    } else if (current === 'granted') {
+      statusEl.textContent = 'Ativo (medição de campanhas confirmada)';
     } else {
-      statusEl.textContent = 'Pendente de escolha (medição publicitária inativa)';
+      statusEl.textContent = 'Ativo no carregamento (você pode restringir para apenas essenciais ao lado)';
     }
   }
 
-  function initStickyObserver() {
-    const heroEl = document.getElementById('hero');
-    const finalEl = document.getElementById('conversao-final');
-    if (!heroEl || !('IntersectionObserver' in window)) return;
+  /* ------------------------------------------------------------------------
+     4. GATILHOS DINÂMICOS DE URGÊNCIA E ESCASSEZ
+     ------------------------------------------------------------------------ */
+  function initUrgencyTicker() {
+    const activityText = document.getElementById('live-activity-text');
+    const spotsLeftEl = document.getElementById('spots-left');
+    const percentEl = document.getElementById('vacancy-percent');
+    const barEl = document.getElementById('vacancy-bar');
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.target === heroEl) {
-            heroInView = entry.isIntersecting;
-          } else if (entry.target === finalEl) {
-            finalCtaInView = entry.isIntersecting;
-          }
-        }
-        syncStickyCta();
-      },
-      { threshold: 0.08 }
-    );
+    if (activityText) {
+      let idx = 0;
+      setInterval(() => {
+        idx = (idx + 1) % URGENCY_MESSAGES.length;
+        activityText.textContent = URGENCY_MESSAGES[idx];
+      }, 3500);
+    }
 
-    observer.observe(heroEl);
-    if (finalEl) observer.observe(finalEl);
+    // Simula preenchimento gradual das últimas vagas para reforçar escassez imediata
+    if (spotsLeftEl && percentEl && barEl) {
+      let spots = 14;
+      let percent = 94;
+
+      setTimeout(() => {
+        spots = 11;
+        percent = 96;
+        spotsLeftEl.textContent = `${spots} vagas`;
+        percentEl.textContent = `${percent}% PREENCHIDO`;
+        barEl.style.width = `${percent}%`;
+      }, 6000);
+
+      setTimeout(() => {
+        spots = 9;
+        percent = 97;
+        spotsLeftEl.textContent = `${spots} vagas`;
+        percentEl.textContent = `${percent}% PREENCHIDO`;
+        barEl.style.width = `${percent}%`;
+      }, 15000);
+    }
   }
 
   /* ------------------------------------------------------------------------
-     5. DISPARO SÍNCRONO NÃO-BLOQUEANTE DE CLIQUES (WHATSAPP & TELEGRAM)
+     5. RASTREAMENTO DE CLIQUE NO WHATSAPP (CUSTOM + LEAD PADRÃO)
      ------------------------------------------------------------------------ */
-  function trackChannelClick(eventName, destination, ctaLocation) {
-    if (getConsent() !== 'granted' || typeof window.fbq !== 'function') {
+  function trackWhatsAppClick(ctaLocation) {
+    if (!isTrackingAllowed() || typeof window.fbq !== 'function') {
       return;
     }
 
     try {
       const utms = captureCampaignUtms();
-      window.fbq(
-        'trackCustom',
-        eventName,
-        Object.assign(
-          {
-            cta_location: ctaLocation || 'unknown',
-            destination: destination,
-          },
-          utms
-        )
+      const payload = Object.assign(
+        {
+          cta_location: ctaLocation || 'hero-main',
+          destination: 'whatsapp_community',
+        },
+        utms
       );
+      window.fbq('trackCustom', 'WhatsAppJoinClick', payload);
+      window.fbq('track', 'Lead', payload);
     } catch {
-      // Jamais interrompe a abertura nativa do aplicativo (WhatsApp / Telegram)
+      // Nunca bloqueia o redirecionamento para o WhatsApp
     }
   }
 
   /* ------------------------------------------------------------------------
-     6. INICIALIZAÇÃO E DELEGAÇÃO DE EVENTOS
+     6. INICIALIZAÇÃO
      ------------------------------------------------------------------------ */
   function init() {
     captureCampaignUtms();
     updateConsentStatusLabel();
-    initStickyObserver();
+    initUrgencyTicker();
 
-    const currentConsent = getConsent();
-    if (currentConsent === 'granted') {
+    if (isTrackingAllowed()) {
       loadMetaPixelIfConfigured();
-    } else if (currentConsent === null) {
-      openCookieBanner();
     }
 
     document.addEventListener('click', (event) => {
@@ -263,15 +264,7 @@
 
       const waLink = target.closest('[data-whatsapp-cta]');
       if (waLink) {
-        // Sem preventDefault(): preserva deep link nativo chat.whatsapp.com em iOS/Android
-        trackChannelClick('WhatsAppJoinClick', 'whatsapp_community', waLink.getAttribute('data-whatsapp-cta'));
-        return;
-      }
-
-      const tgLink = target.closest('[data-telegram-cta]');
-      if (tgLink) {
-        // Sem preventDefault(): preserva deep link nativo t.me em WebViews iOS/Android
-        trackChannelClick('TelegramJoinClick', 'telegram_channel', tgLink.getAttribute('data-telegram-cta'));
+        trackWhatsAppClick(waLink.getAttribute('data-whatsapp-cta'));
         return;
       }
 
@@ -297,4 +290,3 @@
     init();
   }
 })();
-
