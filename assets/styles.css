@@ -1,39 +1,40 @@
 /* ==========================================================================
-   TRALHA SECRETA — LANDING PAGE DE ALTA CONVERSÃO (FOCO 100% WHATSAPP)
+   BLACK PUMP — ESTILO ARTÍSTICO DARK GYM & VERDE NEON (ALTA CONVERSÃO)
+   Inspirado na identidade visual oficial: "Treine Mais. Gaste Menos."
    ========================================================================== */
 
 :root {
-  --color-bg-abyss: #06100C;
-  --color-bg-surface: #0D1E18;
-  --color-bg-card: #11261E;
+  --color-bg-black: #050605;
+  --color-bg-charcoal: #0B0E0B;
+  --color-bg-card: rgba(11, 15, 11, 0.92);
 
-  --color-border-carbon: #1F4034;
-  --color-border-gold: rgba(245, 166, 35, 0.55);
+  --color-pump-lime: #72FF00;
+  --color-pump-lime-bright: #95FF3D;
+  --color-pump-lime-dark: #4ECC00;
+  --color-pump-glow: rgba(114, 255, 0, 0.55);
 
-  --color-text-primary: #F5FAF8;
-  --color-text-secondary: #A9C2B9;
-  --color-text-on-cta: #03140A;
+  --color-border-dark: #1E291B;
+  --color-border-lime: rgba(114, 255, 0, 0.5);
 
-  --color-accent-gold: #FFB82E;
-  --color-alert-red: #FF3B30;
-  --color-alert-red-bg: rgba(255, 59, 48, 0.16);
+  --color-text-white: #FFFFFF;
+  --color-text-muted: #B8C4B5;
+  --color-text-on-lime: #040802;
 
-  --color-wa-green: #22E57A;
-  --color-wa-green-bright: #4DFF9B;
-  --color-wa-green-dark: #15B85D;
+  --color-alert-red: #FF2E2E;
+  --color-alert-red-bg: rgba(255, 46, 46, 0.16);
 
-  --font-display: 'Barlow Condensed', 'Arial Narrow', system-ui, sans-serif;
+  --font-display: 'Barlow Condensed', 'Arial Narrow', Impact, system-ui, sans-serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  --radius-sm: 0.5rem;
-  --radius-md: 1rem;
+  --radius-sm: 0.4rem;
+  --radius-md: 0.85rem;
   --radius-pill: 9999px;
 
   --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 /* --------------------------------------------------------------------------
-   RESET & BASE
+   RESET & BACKGROUND GRUNGE FITNESS
    -------------------------------------------------------------------------- */
 *,
 *::before,
@@ -50,23 +51,27 @@
 html {
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
-  background-color: var(--color-bg-abyss);
-  color: var(--color-text-primary);
+  background-color: var(--color-bg-black);
+  color: var(--color-text-white);
   color-scheme: dark;
 }
 
 body {
+  position: relative;
   min-height: 100vh;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   font-family: var(--font-sans);
   line-height: 1.45;
-  color: var(--color-text-primary);
-  background-color: var(--color-bg-abyss);
+  color: var(--color-text-white);
+  background-color: var(--color-bg-black);
   background-image:
-    radial-gradient(circle at 50% 15%, rgba(34, 229, 122, 0.14) 0%, transparent 55%),
-    radial-gradient(circle at 50% 85%, rgba(255, 184, 46, 0.08) 0%, transparent 60%);
+    radial-gradient(circle at 50% 25%, rgba(114, 255, 0, 0.16) 0%, rgba(5, 6, 5, 0.93) 62%, #050605 100%),
+    url('./images/banner-black-pump.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -96,32 +101,72 @@ ul {
 }
 
 /* --------------------------------------------------------------------------
-   1. BARRA DE ALERTA DE URGÊNCIA NO TOPO
+   DETALHES DIAGONAIS VERDE NEON (ESTILO POSTER BLACK PUMP)
+   -------------------------------------------------------------------------- */
+.slash-accent {
+  position: fixed;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.slash-accent--tl {
+  top: -3rem;
+  left: -4rem;
+  width: 13rem;
+  height: 7rem;
+  background: linear-gradient(135deg, var(--color-pump-lime) 0%, rgba(114, 255, 0, 0.15) 70%, transparent 100%);
+  transform: rotate(-32deg);
+  filter: drop-shadow(0 0 24px rgba(114, 255, 0, 0.45));
+  opacity: 0.75;
+}
+
+.slash-accent--br {
+  bottom: -3rem;
+  right: -4rem;
+  width: 13rem;
+  height: 6rem;
+  background: linear-gradient(315deg, var(--color-pump-lime) 0%, rgba(114, 255, 0, 0.1) 70%, transparent 100%);
+  transform: rotate(-32deg);
+  opacity: 0.55;
+}
+
+/* --------------------------------------------------------------------------
+   1. BARRA SUPERIOR DE ALERTA (VAGAS LIMITADAS)
    -------------------------------------------------------------------------- */
 .urgency-topbar {
+  position: relative;
+  z-index: 20;
   width: 100%;
-  background: linear-gradient(90deg, #B81D13 0%, #E02B20 50%, #B81D13 100%);
-  color: #FFFFFF;
+  background: linear-gradient(90deg, #090C08 0%, #172411 50%, #090C08 100%);
+  border-bottom: 2px solid var(--color-pump-lime);
+  color: var(--color-text-white);
   padding: 0.55rem 0.85rem;
   text-align: center;
-  font-size: clamp(0.75rem, 2.5vw, 0.875rem);
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(0.88rem, 2.8vw, 1.05rem);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  box-shadow: 0 4px 18px rgba(224, 43, 32, 0.45);
-  z-index: 20;
+  box-shadow: 0 4px 24px rgba(114, 255, 0, 0.25);
+}
+
+.urgency-topbar strong {
+  color: var(--color-pump-lime);
 }
 
 .urgency-topbar__dot {
   width: 0.55rem;
   height: 0.55rem;
   border-radius: 50%;
-  background-color: #FFF;
+  background-color: var(--color-pump-lime);
+  box-shadow: 0 0 10px var(--color-pump-lime);
   flex-shrink: 0;
-  animation: blink-dot 0.9s infinite alternate;
+  animation: blink-dot 0.75s infinite alternate;
 }
 
 @keyframes blink-dot {
@@ -131,59 +176,58 @@ ul {
   }
   100% {
     opacity: 1;
-    transform: scale(1.2);
+    transform: scale(1.25);
   }
 }
 
 /* --------------------------------------------------------------------------
-   2. PALCO CENTRAL DE CONVERSÃO (SQUEEZE PAGE)
+   2. CONTAINER CENTRAL DE ALTA CONVERSÃO
    -------------------------------------------------------------------------- */
 .squeeze-stage {
+  position: relative;
+  z-index: 10;
   flex: 1 1 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(1rem, 3vw, 2.25rem) 1rem;
+  padding: clamp(1rem, 3vw, 2rem) 1rem;
 }
 
 .squeeze-card {
   width: 100%;
-  max-width: 36rem;
+  max-width: 35.5rem;
   margin-inline: auto;
-  background: linear-gradient(180deg, rgba(17, 38, 30, 0.95) 0%, rgba(9, 22, 17, 0.98) 100%);
-  border: 1.5px solid var(--color-border-carbon);
+  background: var(--color-bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 2px solid var(--color-border-lime);
   border-radius: var(--radius-md);
-  padding: clamp(1.25rem, 4vw, 2.25rem);
+  padding: clamp(1.25rem, 4vw, 2.15rem);
   text-align: center;
   box-shadow:
-    0 24px 60px rgba(0, 0, 0, 0.85),
-    0 0 40px rgba(34, 229, 122, 0.08);
+    0 24px 64px rgba(0, 0, 0, 0.92),
+    0 0 45px rgba(114, 255, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.1rem;
+  gap: 1.05rem;
 }
 
-/* Emblema + Prova Social */
+/* Logo Black Pump + Pílula de Prova Social */
 .brand-hero {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.7rem;
+  width: 100%;
 }
 
-.brand-hero__emblem-ring {
-  padding: 0.35rem;
-  border-radius: 50%;
-  border: 1.5px dashed var(--color-border-gold);
-  background: radial-gradient(circle, rgba(255, 184, 46, 0.14) 0%, transparent 70%);
-}
-
-.brand-hero__emblem {
-  width: clamp(4.75rem, 16vw, 6rem);
-  height: clamp(4.75rem, 16vw, 6rem);
+.brand-hero__logo {
+  width: clamp(13.5rem, 52vw, 18.5rem);
+  height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.8));
+  filter: drop-shadow(0 6px 22px rgba(114, 255, 0, 0.32));
 }
 
 .social-proof-pill {
@@ -191,59 +235,104 @@ ul {
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
-  padding: 0.4rem 0.9rem;
+  padding: 0.4rem 0.95rem;
   border-radius: var(--radius-pill);
-  background-color: rgba(255, 184, 46, 0.15);
-  border: 1px solid var(--color-border-gold);
-  color: #FFE099;
+  background-color: rgba(114, 255, 0, 0.13);
+  border: 1px solid var(--color-pump-lime);
+  color: var(--color-text-white);
   font-size: clamp(0.8rem, 2.6vw, 0.92rem);
-  font-weight: 600;
-  animation: subtle-float 2.4s ease-in-out infinite;
+  font-weight: 700;
+  box-shadow: 0 0 16px rgba(114, 255, 0, 0.2);
 }
 
 .social-proof-pill strong {
-  color: var(--color-accent-gold);
+  color: var(--color-pump-lime);
   font-weight: 800;
 }
 
-@keyframes subtle-float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-2px);
-  }
-}
-
-/* Títulos */
-.squeeze-title {
+/* --------------------------------------------------------------------------
+   3. HEADLINE NO ESTILO "TREINE MAIS. GASTE MENOS."
+   -------------------------------------------------------------------------- */
+.pump-headline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-family: var(--font-display);
-  font-size: clamp(2rem, 7vw, 2.85rem);
+  font-style: italic;
   font-weight: 900;
-  line-height: 0.98;
+  font-size: clamp(2.6rem, 10vw, 4rem);
+  line-height: 0.9;
   letter-spacing: 0.01em;
   text-transform: uppercase;
-  text-wrap: balance;
+  transform: skewX(-3deg);
+  margin-top: 0.1rem;
 }
 
-.highlight-gold {
-  color: var(--color-accent-gold);
-  text-shadow: 0 0 18px rgba(255, 184, 46, 0.35);
+.pump-headline__white {
+  color: var(--color-text-white);
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.9);
 }
 
-.squeeze-subtitle {
-  font-size: clamp(0.92rem, 2.8vw, 1.05rem);
-  color: var(--color-text-secondary);
-  max-width: 44ch;
+.pump-headline__lime {
+  position: relative;
+  color: var(--color-pump-lime);
+  text-shadow:
+    0 0 22px rgba(114, 255, 0, 0.45),
+    0 4px 16px rgba(0, 0, 0, 0.9);
+  padding-bottom: 0.35rem;
+}
+
+/* Traço pincelado verde neon abaixo de "GASTE MENOS." igual à arte */
+.pump-headline__lime::after {
+  content: '';
+  position: absolute;
+  left: -4%;
+  right: -4%;
+  bottom: 0;
+  height: 0.28rem;
+  background: linear-gradient(90deg, transparent 0%, var(--color-pump-lime) 18%, var(--color-pump-lime-bright) 50%, var(--color-pump-lime) 85%, transparent 100%);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 0 12px var(--color-pump-lime);
+}
+
+.pump-subheadline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 800;
+  font-size: clamp(1rem, 3.4vw, 1.25rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-white);
+  max-width: 38ch;
+  line-height: 1.2;
+}
+
+.pump-chevrons {
+  display: inline-block;
+  margin-left: 0.3rem;
+  color: var(--color-pump-lime);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  text-shadow: 0 0 10px var(--color-pump-lime);
+  animation: chevron-nudge 0.9s infinite alternate ease-in-out;
+}
+
+@keyframes chevron-nudge {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(5px);
+  }
 }
 
 /* --------------------------------------------------------------------------
-   3. CAIXA DE ESCASSEZ (VAGAS LIMITADAS)
+   4. CAIXA DE ESCASSEZ (VAGAS LIMITADAS)
    -------------------------------------------------------------------------- */
 .scarcity-box {
   width: 100%;
-  background-color: rgba(6, 16, 12, 0.85);
-  border: 1px solid rgba(255, 59, 48, 0.45);
+  background-color: rgba(5, 7, 5, 0.92);
+  border: 1.5px solid rgba(255, 46, 46, 0.6);
   border-radius: var(--radius-sm);
   padding: 0.8rem 1rem;
   display: flex;
@@ -256,52 +345,55 @@ ul {
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.95rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 .scarcity-box__alert {
-  color: #FF6961;
-  animation: text-blink 1.2s infinite alternate;
+  color: #FF5252;
+  animation: text-blink 0.95s infinite alternate;
 }
 
 .scarcity-box__percent {
-  color: var(--color-accent-gold);
+  color: var(--color-pump-lime);
 }
 
 .scarcity-bar {
   width: 100%;
-  height: 0.7rem;
-  background-color: #182C24;
+  height: 0.75rem;
+  background-color: #161F14;
   border-radius: var(--radius-pill);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .scarcity-bar__fill {
   width: 94%;
   height: 100%;
   border-radius: var(--radius-pill);
-  background: linear-gradient(90deg, #FFB82E 0%, #FF3B30 100%);
-  box-shadow: 0 0 12px rgba(255, 59, 48, 0.7);
+  background: linear-gradient(90deg, var(--color-pump-lime) 0%, #FFB800 65%, #FF2E2E 100%);
+  box-shadow: 0 0 14px rgba(114, 255, 0, 0.7);
   transition: width 0.6s ease;
 }
 
 .scarcity-box__note {
-  font-size: 0.82rem;
-  color: var(--color-text-primary);
+  font-size: 0.84rem;
+  color: var(--color-text-white);
 }
 
 .scarcity-box__note strong {
-  color: #FF6961;
+  color: var(--color-pump-lime);
   text-decoration: underline;
+  font-weight: 800;
 }
 
 @keyframes text-blink {
   0% {
-    opacity: 0.65;
+    opacity: 0.55;
   }
   100% {
     opacity: 1;
@@ -309,7 +401,7 @@ ul {
 }
 
 /* --------------------------------------------------------------------------
-   4. BOTÃO DO WHATSAPP CENTRALIZADO E PISCANDO (ALTA CONVERSÃO)
+   5. BOTÃO DO WHATSAPP CENTRALIZADO E PISCANDO (VERDE NEON BLACK PUMP)
    -------------------------------------------------------------------------- */
 .cta-center-wrap {
   width: 100%;
@@ -323,32 +415,33 @@ ul {
 .btn-whatsapp-blink {
   position: relative;
   width: 100%;
-  min-height: 4.25rem;
-  padding: 1rem 1.5rem;
-  border-radius: 0.75rem;
-  background: linear-gradient(180deg, var(--color-wa-green-bright) 0%, var(--color-wa-green) 55%, var(--color-wa-green-dark) 100%);
-  color: var(--color-text-on-cta);
+  min-height: 4.4rem;
+  padding: 1rem 1.35rem;
+  border-radius: 0.65rem;
+  background: linear-gradient(180deg, var(--color-pump-lime-bright) 0%, var(--color-pump-lime) 55%, var(--color-pump-lime-dark) 100%);
+  color: var(--color-text-on-lime);
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 5vw, 1.75rem);
+  font-style: italic;
+  font-size: clamp(1.4rem, 5.2vw, 1.85rem);
   font-weight: 900;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
-  border: 2px solid #FFFFFF;
+  gap: 0.65rem;
+  border: 2.5px solid #FFFFFF;
   cursor: pointer;
   user-select: none;
   box-shadow:
-    0 0 25px rgba(34, 229, 122, 0.85),
-    0 10px 30px rgba(0, 0, 0, 0.7);
-  animation: whatsapp-pulse-blink 1.05s infinite ease-in-out;
+    0 0 30px rgba(114, 255, 0, 0.9),
+    0 12px 32px rgba(0, 0, 0, 0.85);
+  animation: pump-whatsapp-blink 0.95s infinite ease-in-out;
 }
 
 .btn-whatsapp-blink:hover,
 .btn-whatsapp-blink:focus-visible {
-  background: linear-gradient(180deg, #70FFAE 0%, #22E57A 100%);
+  background: linear-gradient(180deg, #B2FF66 0%, var(--color-pump-lime) 100%);
   transform: scale(1.03);
 }
 
@@ -357,44 +450,49 @@ ul {
 }
 
 .btn-whatsapp-blink__icon {
-  width: 1.85rem;
-  height: 1.85rem;
+  width: 1.9rem;
+  height: 1.9rem;
   flex-shrink: 0;
 }
 
-@keyframes whatsapp-pulse-blink {
+.btn-whatsapp-blink__arrows {
+  font-weight: 900;
+  letter-spacing: -0.06em;
+}
+
+@keyframes pump-whatsapp-blink {
   0% {
     transform: scale(1);
     box-shadow:
-      0 0 0 0 rgba(34, 229, 122, 0.85),
-      0 0 22px rgba(34, 229, 122, 0.7);
+      0 0 0 0 rgba(114, 255, 0, 0.9),
+      0 0 24px rgba(114, 255, 0, 0.75);
     filter: brightness(1);
   }
   50% {
     transform: scale(1.045);
     box-shadow:
-      0 0 0 14px rgba(34, 229, 122, 0),
-      0 0 42px rgba(77, 255, 155, 1);
-    filter: brightness(1.15);
+      0 0 0 16px rgba(114, 255, 0, 0),
+      0 0 48px rgba(149, 255, 61, 1);
+    filter: brightness(1.18);
   }
   100% {
     transform: scale(1);
     box-shadow:
-      0 0 0 0 rgba(34, 229, 122, 0),
-      0 0 22px rgba(34, 229, 122, 0.7);
+      0 0 0 0 rgba(114, 255, 0, 0),
+      0 0 24px rgba(114, 255, 0, 0.75);
     filter: brightness(1);
   }
 }
 
 .cta-click-hint {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  color: var(--color-accent-gold);
+  color: var(--color-pump-lime);
   letter-spacing: 0.02em;
 }
 
 /* --------------------------------------------------------------------------
-   5. LISTA DE GATILHOS DE URGÊNCIA E PROVA SOCIAL
+   6. LISTA DE GATILHOS DE URGÊNCIA E PROVA SOCIAL
    -------------------------------------------------------------------------- */
 .urgency-list {
   width: 100%;
@@ -402,7 +500,7 @@ ul {
   flex-direction: column;
   gap: 0.55rem;
   text-align: left;
-  margin-top: 0.25rem;
+  margin-top: 0.15rem;
 }
 
 .urgency-list__item {
@@ -410,45 +508,48 @@ ul {
   align-items: center;
   gap: 0.65rem;
   padding: 0.6rem 0.75rem;
-  background-color: rgba(13, 30, 24, 0.9);
-  border: 1px solid var(--color-border-carbon);
+  background-color: rgba(6, 9, 6, 0.92);
+  border: 1px solid var(--color-border-dark);
+  border-left: 3px solid var(--color-pump-lime);
   border-radius: var(--radius-sm);
   font-size: 0.84rem;
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
 }
 
 .urgency-list__item strong {
-  color: var(--color-text-primary);
+  color: var(--color-text-white);
 }
 
 .urgency-list__badge {
   flex-shrink: 0;
   padding: 0.2rem 0.5rem;
-  border-radius: 0.3rem;
-  background-color: rgba(34, 229, 122, 0.16);
-  border: 1px solid rgba(34, 229, 122, 0.45);
-  color: var(--color-wa-green-bright);
-  font-size: 0.68rem;
+  border-radius: 0.25rem;
+  background-color: rgba(114, 255, 0, 0.14);
+  border: 1px solid rgba(114, 255, 0, 0.5);
+  color: var(--color-pump-lime);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.8rem;
   font-weight: 800;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   white-space: nowrap;
 }
 
 .urgency-list__badge--red {
   background-color: var(--color-alert-red-bg);
-  border-color: rgba(255, 59, 48, 0.55);
-  color: #FF7B73;
+  border-color: rgba(255, 46, 46, 0.6);
+  color: #FF6B6B;
 }
 
-.urgency-list__badge--gold {
-  background-color: rgba(255, 184, 46, 0.16);
-  border-color: rgba(255, 184, 46, 0.5);
-  color: var(--color-accent-gold);
+.urgency-list__badge--lime {
+  background-color: var(--color-pump-lime);
+  border-color: var(--color-pump-lime);
+  color: var(--color-text-on-lime);
 }
 
 /* --------------------------------------------------------------------------
-   6. ATIVIDADE AO VIVO (PROVA SOCIAL EM TEMPO REAL)
+   7. ATIVIDADE AO VIVO (PROVA SOCIAL EM TEMPO REAL)
    -------------------------------------------------------------------------- */
 .live-activity {
   width: 100%;
@@ -458,32 +559,35 @@ ul {
   gap: 0.5rem;
   padding: 0.55rem 0.85rem;
   border-radius: var(--radius-pill);
-  background-color: rgba(6, 16, 12, 0.9);
-  border: 1px solid var(--color-border-carbon);
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--color-text-primary);
+  background-color: rgba(5, 7, 5, 0.95);
+  border: 1px solid var(--color-border-lime);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-text-white);
 }
 
 .live-activity__pulse {
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 0.55rem;
+  height: 0.55rem;
   border-radius: 50%;
-  background-color: var(--color-wa-green);
-  box-shadow: 0 0 8px var(--color-wa-green);
+  background-color: var(--color-pump-lime);
+  box-shadow: 0 0 10px var(--color-pump-lime);
   flex-shrink: 0;
-  animation: blink-dot 0.8s infinite alternate;
+  animation: blink-dot 0.75s infinite alternate;
 }
 
 /* --------------------------------------------------------------------------
-   7. RODAPÉ COMPACTO & BANNER DE COOKIES
+   8. RODAPÉ COMPACTO & BANNER DE COOKIES
    -------------------------------------------------------------------------- */
 .mini-footer {
+  position: relative;
+  z-index: 10;
   padding: 1rem;
   text-align: center;
-  border-top: 1px solid rgba(31, 64, 52, 0.5);
+  border-top: 1px solid rgba(114, 255, 0, 0.2);
+  background-color: rgba(5, 6, 5, 0.92);
   font-size: 0.72rem;
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -498,13 +602,13 @@ ul {
 }
 
 .footer-link {
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 .footer-link:hover {
-  color: var(--color-accent-gold);
+  color: var(--color-pump-lime);
 }
 
 .cookie-banner {
@@ -514,9 +618,9 @@ ul {
   bottom: 0;
   z-index: 80;
   padding: 1rem 1rem calc(1rem + var(--safe-bottom));
-  background-color: var(--color-bg-surface);
-  border-top: 1px solid var(--color-border-gold);
-  box-shadow: 0 -16px 40px rgba(0, 0, 0, 0.85);
+  background-color: var(--color-bg-charcoal);
+  border-top: 2px solid var(--color-pump-lime);
+  box-shadow: 0 -16px 40px rgba(0, 0, 0, 0.9);
 }
 
 .cookie-banner__inner {
@@ -529,7 +633,7 @@ ul {
 
 .cookie-banner__text {
   font-size: 0.75rem;
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
 }
 
 .cookie-banner__actions {
@@ -543,23 +647,23 @@ ul {
   padding: 0.45rem 0.9rem;
   border-radius: var(--radius-sm);
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
 }
 
 .btn-consent--accept {
-  background-color: var(--color-wa-green);
-  color: var(--color-text-on-cta);
+  background-color: var(--color-pump-lime);
+  color: var(--color-text-on-lime);
 }
 
 .btn-consent--reject {
-  background-color: var(--color-bg-abyss);
-  color: var(--color-text-primary);
-  border: 1px solid var(--color-border-carbon);
+  background-color: var(--color-bg-black);
+  color: var(--color-text-white);
+  border: 1px solid var(--color-border-dark);
 }
 
 /* --------------------------------------------------------------------------
-   8. ESTILOS DE COMPATIBILIDADE PARA privacidade.html
+   9. ESTILOS DE COMPATIBILIDADE PARA privacidade.html
    -------------------------------------------------------------------------- */
 .container {
   width: 100%;
@@ -569,8 +673,8 @@ ul {
 }
 
 .site-header {
-  border-bottom: 1px solid var(--color-border-carbon);
-  background-color: var(--color-bg-surface);
+  border-bottom: 1px solid var(--color-border-lime);
+  background-color: var(--color-bg-charcoal);
 }
 
 .site-header__inner {
@@ -587,8 +691,8 @@ ul {
 }
 
 .brand-lockup__emblem {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3.5rem;
+  height: auto;
   object-fit: contain;
 }
 
@@ -599,14 +703,16 @@ ul {
 
 .brand-lockup__name {
   font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 800;
+  font-style: italic;
+  font-size: 1.35rem;
+  font-weight: 900;
   text-transform: uppercase;
+  color: var(--color-pump-lime);
 }
 
 .brand-lockup__sub {
   font-size: 0.75rem;
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
 }
 
 .btn-cta {
@@ -615,13 +721,18 @@ ul {
   justify-content: center;
   padding: 0.6rem 1.1rem;
   border-radius: var(--radius-sm);
-  font-weight: 700;
-  font-size: 0.85rem;
-  background-color: var(--color-wa-green);
-  color: var(--color-text-on-cta);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 900;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  background-color: var(--color-pump-lime);
+  color: var(--color-text-on-lime);
 }
 
 .legal-main {
+  position: relative;
+  z-index: 10;
   padding-block: 2rem;
 }
 
@@ -629,8 +740,8 @@ ul {
   max-width: 48rem;
   margin-inline: auto;
   padding: 1.5rem;
-  background-color: var(--color-bg-surface);
-  border: 1px solid var(--color-border-carbon);
+  background-color: rgba(11, 15, 11, 0.95);
+  border: 1px solid var(--color-border-lime);
   border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;
@@ -640,17 +751,18 @@ ul {
 .legal-card h1,
 .legal-card h2 {
   font-family: var(--font-display);
+  font-style: italic;
   text-transform: uppercase;
 }
 
 .legal-card h2 {
-  color: var(--color-accent-gold);
+  color: var(--color-pump-lime);
 }
 
 .legal-card p,
 .legal-card li {
   font-size: 0.875rem;
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
 }
 
 .legal-card ul {
@@ -663,8 +775,8 @@ ul {
 
 .legal-status-box {
   padding: 1rem;
-  background-color: var(--color-bg-abyss);
-  border: 1px solid var(--color-border-carbon);
+  background-color: var(--color-bg-black);
+  border: 1px solid var(--color-border-dark);
   border-radius: var(--radius-sm);
   display: flex;
   flex-wrap: wrap;

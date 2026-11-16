@@ -1,5 +1,5 @@
 /**
- * Tralha Secreta — Script de Alta Conversão, Urgência Dinâmica e Meta Pixel
+ * Black Pump — Script de Alta Conversão, Urgência Dinâmica e Meta Pixel
  * Arquitetura Zero-Build (Vanilla JS).
  */
 (function () {
@@ -7,8 +7,8 @@
 
   const CONFIG = {
     metaPixelId: '2412554752613262',
-    consentKey: 'ts_lgpd_consent_v1',
-    utmKey: 'ts_campaign_utms_v1',
+    consentKey: 'bp_lgpd_consent_v1',
+    utmKey: 'bp_campaign_utms_v1',
   };
 
   const UTM_PARAMS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
@@ -17,11 +17,11 @@
 
   const URGENCY_MESSAGES = [
     '🔥 Mais de 1.000 pessoas já economizaram com a gente!',
-    '⚠️ Vagas limitadas: o grupo atual está 95% preenchido!',
-    '⚡ Marcos S. acabou de entrar no grupo pelo WhatsApp!',
-    '🎣 Carretilha com 58% OFF publicada há poucos minutos no grupo!',
-    '⏳ Restam poucas vagas gratuitas antes do link fechar!',
-    '💰 Mais de 1.000 pescadores já garantiram tralha mais barata!',
+    '⚠️ Vagas limitadas: o grupo VIP está 95% preenchido!',
+    '⚡ Creatina 100% Pura com 54% OFF postada há poucos minutos!',
+    '💪 Lucas R. acabou de entrar no grupo Black Pump pelo WhatsApp!',
+    '⏳ Restam poucas vagas gratuitas antes do link encerrar!',
+    '🥤 Whey Protein e Pré-treino com cupom exclusivo liberado agora!',
   ];
 
   /* ------------------------------------------------------------------------
@@ -196,10 +196,9 @@
       setInterval(() => {
         idx = (idx + 1) % URGENCY_MESSAGES.length;
         activityText.textContent = URGENCY_MESSAGES[idx];
-      }, 3500);
+      }, 3200);
     }
 
-    // Simula preenchimento gradual das últimas vagas para reforçar escassez imediata
     if (spotsLeftEl && percentEl && barEl) {
       let spots = 14;
       let percent = 94;
@@ -210,15 +209,15 @@
         spotsLeftEl.textContent = `${spots} vagas`;
         percentEl.textContent = `${percent}% PREENCHIDO`;
         barEl.style.width = `${percent}%`;
-      }, 6000);
+      }, 5500);
 
       setTimeout(() => {
-        spots = 9;
-        percent = 97;
+        spots = 8;
+        percent = 98;
         spotsLeftEl.textContent = `${spots} vagas`;
         percentEl.textContent = `${percent}% PREENCHIDO`;
         barEl.style.width = `${percent}%`;
-      }, 15000);
+      }, 13000);
     }
   }
 
@@ -235,7 +234,7 @@
       const payload = Object.assign(
         {
           cta_location: ctaLocation || 'hero-main',
-          destination: 'whatsapp_community',
+          destination: 'whatsapp_black_pump',
         },
         utms
       );
