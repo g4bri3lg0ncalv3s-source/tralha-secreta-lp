@@ -55,19 +55,13 @@
       />
     </noscript>
 
-    <!-- Detalhes Gráficos de Canto (Estilo Grunge / Diagonal Verde Limão da Arte) -->
+    <!-- Detalhes Gráficos de Canto -->
     <div class="slash-accent slash-accent--tl" aria-hidden="true"></div>
     <div class="slash-accent slash-accent--br" aria-hidden="true"></div>
 
-    <!-- Faixa Superior de Alerta e Urgência -->
-    <div class="urgency-topbar" role="status" aria-live="polite">
-      <span class="urgency-topbar__dot" aria-hidden="true"></span>
-      <span>⚠️ <strong>VAGAS LIMITADAS:</strong> O ACESSO GRATUITO AO GRUPO VIP PODE ENCERRAR A QUALQUER MOMENTO!</span>
-    </div>
-
     <main id="conteudo-principal" class="squeeze-stage">
       <div class="squeeze-card">
-        <!-- Logo Oficial Black Pump + Prova Social -->
+        <!-- Logo Oficial Black Pump -->
         <div class="brand-hero">
           <img
             class="brand-hero__logo"
@@ -75,41 +69,41 @@
             width="340"
             height="226"
             fetchpriority="high"
+            decoding="async"
             alt="Black Pump — Ofertas que dão resultado"
           />
-
-          <div class="social-proof-pill">
-            <span class="social-proof-pill__fire" aria-hidden="true">🔥</span>
-            <span><strong>Mais de 1.000 pessoas</strong> já economizaram com a gente!</span>
-          </div>
         </div>
 
-        <!-- Headline no Estilo Exato do Poster ("TREINE MAIS. GASTE MENOS.") -->
+        <!-- Headline Principal -->
         <h1 class="pump-headline">
           <span class="pump-headline__white">TREINE MAIS.</span>
           <span class="pump-headline__lime">GASTE MENOS.</span>
         </h1>
 
         <p class="pump-subheadline">
-          <span>SUPLEMENTOS E ACESSÓRIOS COM AS MELHORES OFERTAS NO WHATSAPP.</span>
-          <span class="pump-chevrons" aria-hidden="true">&gt;&gt;&gt;</span>
+          Suplementos e acessórios com as melhores ofertas no WhatsApp.
         </p>
 
-        <!-- Barra de Escassez / Vagas Limitadas -->
+        <!-- Barra de Escassez Enxuta -->
         <div class="scarcity-box" aria-label="Status de preenchimento das vagas">
           <div class="scarcity-box__header">
-            <span class="scarcity-box__alert">🚨 VAGAS LIMITADAS NO GRUPO VIP</span>
+            <span class="scarcity-box__alert" id="scarcity-label">VAGAS NO GRUPO VIP</span>
             <span class="scarcity-box__percent" id="vacancy-percent">94% PREENCHIDO</span>
           </div>
-          <div class="scarcity-bar">
+          <div
+            class="scarcity-bar"
+            id="vacancy-progressbar"
+            role="progressbar"
+            aria-labelledby="scarcity-label"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="94"
+          >
             <div class="scarcity-bar__fill" id="vacancy-bar"></div>
           </div>
-          <p class="scarcity-box__note">
-            Restam apenas <strong id="spots-left">14 vagas</strong> gratuitas disponíveis hoje.
-          </p>
         </div>
 
-        <!-- BOTÃO ÚNICO DO WHATSAPP CENTRALIZADO E PISCANDO -->
+        <!-- BOTÃO ÚNICO DO WHATSAPP CENTRALIZADO EM DESTAQUE ABSOLUTO -->
         <div class="cta-center-wrap">
           <a
             class="btn-whatsapp-blink"
@@ -132,48 +126,26 @@
               />
             </svg>
             <span>ENTRAR NO WHATSAPP AGORA</span>
-            <span class="btn-whatsapp-blink__arrows" aria-hidden="true">&gt;&gt;&gt;</span>
           </a>
-          <span class="cta-click-hint">👆 Toque no botão piscando acima antes que o grupo lote!</span>
         </div>
 
-        <!-- Gatilhos Fortes de Urgência e Prova Social -->
-        <ul class="urgency-list" aria-label="Vantagens e urgência do grupo">
-          <li class="urgency-list__item">
-            <span class="urgency-list__badge">✅ +1.000 MEMBROS</span>
-            <span><strong>Mais de 1.000 pessoas já economizaram com a gente</strong> em Whey, Creatina e Pré-treino.</span>
-          </li>
-          <li class="urgency-list__item">
-            <span class="urgency-list__badge urgency-list__badge--red">⏳ VAGAS LIMITADAS</span>
-            <span>Assim que o limite de membros for atingido, o link fecha automaticamente.</span>
-          </li>
-          <li class="urgency-list__item">
-            <span class="urgency-list__badge urgency-list__badge--lime">⚡ BUGS E CUPONS</span>
-            <span>Ofertas relâmpago com até 70% OFF que esgotam em poucos minutos.</span>
-          </li>
-          <li class="urgency-list__item">
-            <span class="urgency-list__badge">🔒 ZERO SPAM</span>
-            <span>100% gratuito, grupo silencioso (só avisos de ofertas) e seu número protegido.</span>
-          </li>
-        </ul>
-
-        <!-- Ticker de Atividade Ao Vivo -->
-        <div class="live-activity" id="live-activity" aria-live="polite">
-          <span class="live-activity__pulse" aria-hidden="true"></span>
-          <span id="live-activity-text">🔥 Mais de 1.000 pessoas já economizaram com a gente!</span>
+        <!-- Selos Mínimos de Confiança -->
+        <div class="trust-inline" aria-label="Garantias do grupo">
+          <span>🔒 100% Gratuito</span>
+          <span class="trust-inline__dot" aria-hidden="true">•</span>
+          <span>🔕 Sem Spam</span>
+          <span class="trust-inline__dot" aria-hidden="true">•</span>
+          <span>🔥 +1.000 Membros</span>
         </div>
       </div>
     </main>
 
     <!-- Rodapé Mínimo Legal -->
     <footer class="mini-footer" aria-label="Rodapé legal">
-      <p class="mini-footer__disclaimer">
-        Black Pump — Ofertas que dão resultado. Divulgamos promoções e links de afiliados de lojas parceiras sem custo extra para você.
-      </p>
       <div class="mini-footer__links">
         <span>© Black Pump</span>
-        <a class="footer-link" href="./privacidade.html">Política de Privacidade (LGPD)</a>
-        <button type="button" class="footer-link" data-open-consent>Preferências de Cookies</button>
+        <a class="footer-link" href="./privacidade.html">Privacidade (LGPD)</a>
+        <button type="button" class="footer-link" data-open-consent>Cookies</button>
       </div>
     </footer>
 

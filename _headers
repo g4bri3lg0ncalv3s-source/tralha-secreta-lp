@@ -7,9 +7,6 @@
 /assets/images/*
   Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
 
-/assets/textures/*
-  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
-
 /assets/styles.css
   Cache-Control: public, max-age=86400, must-revalidate
 

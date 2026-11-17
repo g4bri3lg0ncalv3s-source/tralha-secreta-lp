@@ -15,15 +15,6 @@
   let pixelBootstrapped = false;
   let pageViewTracked = false;
 
-  const URGENCY_MESSAGES = [
-    '🔥 Mais de 1.000 pessoas já economizaram com a gente!',
-    '⚠️ Vagas limitadas: o grupo VIP está 95% preenchido!',
-    '⚡ Creatina 100% Pura com 54% OFF postada há poucos minutos!',
-    '💪 Lucas R. acabou de entrar no grupo Black Pump pelo WhatsApp!',
-    '⏳ Restam poucas vagas gratuitas antes do link encerrar!',
-    '🥤 Whey Protein e Pré-treino com cupom exclusivo liberado agora!',
-  ];
-
   /* ------------------------------------------------------------------------
      1. ARMAZENAMENTO SEGURO
      ------------------------------------------------------------------------ */
@@ -183,40 +174,28 @@
   }
 
   /* ------------------------------------------------------------------------
-     4. GATILHOS DINÂMICOS DE URGÊNCIA E ESCASSEZ
+     4. BARRA DE VAGAS DINÂMICA
      ------------------------------------------------------------------------ */
   function initUrgencyTicker() {
-    const activityText = document.getElementById('live-activity-text');
-    const spotsLeftEl = document.getElementById('spots-left');
     const percentEl = document.getElementById('vacancy-percent');
     const barEl = document.getElementById('vacancy-bar');
+    const progressEl = document.getElementById('vacancy-progressbar');
 
-    if (activityText) {
-      let idx = 0;
-      setInterval(() => {
-        idx = (idx + 1) % URGENCY_MESSAGES.length;
-        activityText.textContent = URGENCY_MESSAGES[idx];
-      }, 3200);
-    }
-
-    if (spotsLeftEl && percentEl && barEl) {
-      let spots = 14;
+    if (percentEl && barEl) {
       let percent = 94;
 
       setTimeout(() => {
-        spots = 11;
         percent = 96;
-        spotsLeftEl.textContent = `${spots} vagas`;
         percentEl.textContent = `${percent}% PREENCHIDO`;
         barEl.style.width = `${percent}%`;
+        if (progressEl) progressEl.setAttribute('aria-valuenow', String(percent));
       }, 5500);
 
       setTimeout(() => {
-        spots = 8;
         percent = 98;
-        spotsLeftEl.textContent = `${spots} vagas`;
         percentEl.textContent = `${percent}% PREENCHIDO`;
         barEl.style.width = `${percent}%`;
+        if (progressEl) progressEl.setAttribute('aria-valuenow', String(percent));
       }, 13000);
     }
   }
